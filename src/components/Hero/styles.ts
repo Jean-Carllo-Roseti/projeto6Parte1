@@ -5,7 +5,7 @@ import Vector from '../../assets/images/vector.png'
 export const HeroContainer = styled.div`
   text-align: center;
   padding-bottom: 40px;
-  background-image: ${Vector};
+  background-image: url(${Vector});
 `
 export const HeroText = styled.div`
   font-weight: bolder;
