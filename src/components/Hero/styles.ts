@@ -8,7 +8,7 @@ export const HeroContainer = styled.div`
   background-image: url(${Vector});
 `
 export const HeroText = styled.div`
-  font-weight: bolder;
+  font-weight: 900;
   font-size: 36px;
   line-height: 42px;
   color: ${cores.salmao};

@@ -4,6 +4,7 @@ export const cores = {
   amarelo: '#FFB930',
   branca: '#FFFFFF',
   fundoBody: '#FFF8F2',
+  trigo: '#FFEBD9',
   salmao: '#E66767'
 }
 
