@@ -7,21 +7,33 @@ export const CardCadapio = styled.div`
   height: 398px;
   font-size: 14px;
   color: ${cores.salmao};
+`
+export const Borda = styled.div`
   border: solid 1px ${cores.salmao};
+  margin-top: -5px;
 `
 
-export const TitleCardapio = styled.h3`
-  margin-top: 8px;
-  margin-left: 7px;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 22px;
-`
 export const TextCardapio = styled.p`
   margin: 16px 8px;
   line-height: 22px;
 `
+
 export const ImgCardapio = styled.img`
   width: 472px;
   height: 217px;
+`
+
+export const CadapiorLitaTag = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 18px;
+
+  h3 {
+    margin-left: 8px;
+    line-height: 22px;
+  }
 `
