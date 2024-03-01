@@ -1,28 +1,29 @@
-import { CardCadapio } from '../Cardapio/styles'
+import Cardapio from '../Cardapio'
+import { List, SectionList } from './styles'
 
 const CardapioList = () => (
-  <div>
-    <ul>
+  <SectionList>
+    <List>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
       <li>
-        <CardCadapio />
+        <Cardapio />
       </li>
-    </ul>
-  </div>
+    </List>
+  </SectionList>
 )
 
 export default CardapioList

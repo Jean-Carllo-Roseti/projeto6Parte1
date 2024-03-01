@@ -4,7 +4,7 @@ import Logo from '../../assets/images/logo.png'
 const Hero = () => (
   <HeroContainer>
     <ImgHero src={Logo} />
-    <HeroText className="container">
+    <HeroText>
       Viva experiências gastronômicas <br />
       no conforto da sua casa
     </HeroText>
