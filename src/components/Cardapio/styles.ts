@@ -7,7 +7,7 @@ export const ImgCardapio = styled.div<Pick<Prato, 'image'>>`
   width: 100%;
   max-width: 472px;
   height: 217px;
-  background-image: url(${(props) => props.image}); // como de declarar??
+  background-image: url(${(props) => props.image});
   flex-direction: row-reverse;
   display: flex;
 `

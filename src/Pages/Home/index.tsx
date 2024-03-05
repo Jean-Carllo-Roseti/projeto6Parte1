@@ -1,9 +1,9 @@
-import Prato from '../../../Models/Pratos'
-import CardapioList from '../../../components/CardapioList'
-import Footer from '../../../components/Footer'
-import Hero from '../../../components/Hero'
+import Prato from '../../Models/Pratos'
+import CardapioList from '../../components/CardapioList'
+import Footer from '../../components/Footer'
+import Hero from '../../components/Hero'
 
-import Sushi from '../../../assets/images/sushi.png'
+import Sushi from '../../assets/images/sushi.png'
 
 const paginaHome: Prato[] = [
   {
