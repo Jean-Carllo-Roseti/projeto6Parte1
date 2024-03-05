@@ -17,7 +17,7 @@ const paginaHome: Prato[] = [
   },
   {
     id: 2,
-    category: ['japones', 'destaque'],
+    category: ['japones'],
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Hioki Sushi',
@@ -26,7 +26,7 @@ const paginaHome: Prato[] = [
   },
   {
     id: 3,
-    category: ['japones', 'destaque'],
+    category: ['japones'],
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Hioki Sushi',
@@ -35,7 +35,7 @@ const paginaHome: Prato[] = [
   },
   {
     id: 4,
-    category: ['japones', 'destaque'],
+    category: ['japones'],
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Hioki Sushi',
@@ -44,7 +44,7 @@ const paginaHome: Prato[] = [
   },
   {
     id: 5,
-    category: ['japones', 'destaque'],
+    category: ['japones'],
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Hioki Sushi',
@@ -53,7 +53,7 @@ const paginaHome: Prato[] = [
   },
   {
     id: 6,
-    category: ['japones', 'destaque'],
+    category: ['japones'],
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Hioki Sushi',

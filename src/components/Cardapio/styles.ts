@@ -12,18 +12,6 @@ export const ImgCardapio = styled.div<Pick<Prato, 'image'>>`
   display: flex;
 `
 
-export const LinkPerfil = styled.a`
-  color: ${cores.trigo};
-  background-color: ${cores.salmao};
-  border: none;
-  padding: 4px 6px;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  display: inline-block;
-  margin: 8px 8px;
-`
-
 export const Etiqueta = styled.span`
   position: relative;
   top: 16px;
@@ -32,7 +20,7 @@ export const Etiqueta = styled.span`
 
 export const CardCadapio = styled.div``
 
-export const CadapiorLitaTag = styled.ul`
+export const CadapiorListaTag = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +32,10 @@ export const CadapiorLitaTag = styled.ul`
     margin-left: 8px;
     line-height: 22px;
   }
+
+  li:nth-child(2) {
+    padding: 8px 8px 0 8px;
+  }
 `
 
 export const Borda = styled.div`
@@ -52,6 +44,18 @@ export const Borda = styled.div`
   border-color: transparent ${cores.salmao} ${cores.salmao} ${cores.salmao};
   background-color: ${cores.branca};
   color: ${cores.salmao};
+
+  a {
+    color: ${cores.trigo};
+    background-color: ${cores.salmao};
+    border: none;
+    padding: 4px 6px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px 8px;
+  }
 `
 
 export const TextCardapio = styled.p`
@@ -67,4 +71,7 @@ export const Nota = styled.div`
   p {
     padding-right: 8px;
   }
+`
+export const ImgEstrela = styled.img`
+  padding-left: 8px;
 `

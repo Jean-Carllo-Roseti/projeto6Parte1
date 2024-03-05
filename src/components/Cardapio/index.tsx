@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom'
+
 import {
   CardCadapio,
   TextCardapio,
   Borda,
   ImgCardapio,
-  CadapiorLitaTag,
+  CadapiorListaTag,
   Etiqueta,
-  LinkPerfil,
-  Nota
+  Nota,
+  ImgEstrela
 } from './styles'
 
 import Tag from '../Tag'
@@ -31,18 +33,18 @@ const Cardapio = ({ category, title, description, nota, image }: Props) => (
         </Etiqueta>
       </ImgCardapio>
       <Borda>
-        <CadapiorLitaTag>
+        <CadapiorListaTag>
           <li>
             <h3>{title}</h3>
           </li>
           <li>
             <Nota>
-              {nota} <img src={Estrela} />
+              {nota} <ImgEstrela src={Estrela} />
             </Nota>
           </li>
-        </CadapiorLitaTag>
+        </CadapiorListaTag>
         <TextCardapio>{description}</TextCardapio>
-        <LinkPerfil href="#">Saiba mais</LinkPerfil>
+        <Link to="/perfil">Saiba mais</Link>
       </Borda>
     </CardCadapio>
   </>

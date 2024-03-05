@@ -9,18 +9,16 @@ export type Props = {
 const CardapioList = ({ pratos }: Props) => (
   <SectionList>
     <List>
-      <li>
-        {pratos.map((pratos) => (
-          <Cardapio
-            key={pratos.id}
-            category={pratos.category}
-            description={pratos.description}
-            title={pratos.title}
-            nota={pratos.nota}
-            image={pratos.image}
-          />
-        ))}
-      </li>
+      {pratos.map((pratos) => (
+        <Cardapio
+          key={pratos.id}
+          category={pratos.category}
+          description={pratos.description}
+          title={pratos.title}
+          nota={pratos.nota}
+          image={pratos.image}
+        />
+      ))}
     </List>
   </SectionList>
 )

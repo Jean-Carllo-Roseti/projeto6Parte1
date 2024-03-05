@@ -1,13 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
+
 import { GlobalCss } from './styles'
 
-import Home from './Pages/Perfil/Home'
+import Rotas from './routes'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalCss />
-      <Home />
-    </>
+      <Rotas />
+    </BrowserRouter>
   )
 }
 
