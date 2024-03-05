@@ -4,7 +4,8 @@ import {
   Borda,
   ImgCardapio,
   CadapiorLitaTag,
-  Etiqueta
+  Etiqueta,
+  LinkPerfil
 } from './styles'
 
 import Nota from '../Nota'
@@ -40,7 +41,7 @@ const Cardapio = ({ child }: Props) => (
           <br />
           Experimente o Japão sem sair do lar com nosso delivery!
         </TextCardapio>
-        <button type="button">Saiba mais</button>
+        <LinkPerfil href="#">Saiba mais</LinkPerfil>
       </Borda>
     </CardCadapio>
   </>

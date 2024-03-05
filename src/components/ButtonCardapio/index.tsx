@@ -1,4 +1,4 @@
-import { ButtonCard } from './styles'
+import { ButtonPerfil } from './styles'
 
 export type Props = {
   type: 'button' | 'link'
@@ -9,19 +9,13 @@ export type Props = {
 }
 
 const Button = ({ type, children, onClick, title, to }: Props) => {
-  if (type === 'button' && to) {
+  if (type === 'button') {
     return (
-      <ButtonCard type="button" title={title} onClick={onClick}>
+      <ButtonPerfil type="button" title={title} onClick={onClick}>
         {children}
-      </ButtonCard>
+      </ButtonPerfil>
     )
   }
-
-  return (
-    <ButtonCard as="a" href={to} title={title}>
-      {children}
-    </ButtonCard>
-  )
 }
 
 export default Button

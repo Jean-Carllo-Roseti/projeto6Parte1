@@ -2,6 +2,7 @@ import { GlobalCss } from './styles'
 
 import Hero from './components/Hero'
 import CardapioList from './components/CardapioList'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <GlobalCss />
       <Hero />
       <CardapioList />
+      <Footer />
     </>
   )
 }
