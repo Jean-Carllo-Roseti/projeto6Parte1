@@ -1,16 +1,12 @@
 import { GlobalCss } from './styles'
 
-import Hero from './components/Hero'
-import CardapioList from './components/CardapioList'
-import Footer from './components/Footer'
+import Home from './Pages/Perfil/Home'
 
 function App() {
   return (
     <>
       <GlobalCss />
-      <Hero />
-      <CardapioList />
-      <Footer />
+      <Home />
     </>
   )
 }

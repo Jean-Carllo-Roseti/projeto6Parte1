@@ -1,26 +1,25 @@
+import Pratos from '../../Models/Pratos'
 import Cardapio from '../Cardapio'
 import { List, SectionList } from './styles'
 
-const CardapioList = () => (
+export type Props = {
+  pratos: Pratos[]
+}
+
+const CardapioList = ({ pratos }: Props) => (
   <SectionList>
     <List>
       <li>
-        <Cardapio child={['japones', 'destaque']} />
-      </li>
-      <li>
-        <Cardapio child={['japones']} />
-      </li>
-      <li>
-        <Cardapio child={['japones']} />
-      </li>
-      <li>
-        <Cardapio child={['japones']} />
-      </li>
-      <li>
-        <Cardapio child={['japones']} />
-      </li>
-      <li>
-        <Cardapio child={['japones']} />
+        {pratos.map((pratos) => (
+          <Cardapio
+            key={pratos.id}
+            category={pratos.category}
+            description={pratos.description}
+            title={pratos.title}
+            nota={pratos.nota}
+            image={pratos.image}
+          />
+        ))}
       </li>
     </List>
   </SectionList>

@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import Sushi from '../../assets/images/sushi.png'
+
+import type Prato from '../../Models/Pratos'
+
+export const ImgCardapio = styled.div<Pick<Prato, 'image'>>`
+  width: 100%;
+  max-width: 472px;
+  height: 217px;
+  background-image: url(${(props) => props.image}); // como de declarar??
+  flex-direction: row-reverse;
+  display: flex;
+`
 
 export const LinkPerfil = styled.a`
   color: ${cores.trigo};
@@ -14,14 +24,6 @@ export const LinkPerfil = styled.a`
   margin: 8px 8px;
 `
 
-export const ImgCardapio = styled.div`
-  width: 100%;
-  max-width: 472px;
-  height: 217px;
-  background-image: url(${Sushi});
-  display: flex;
-  flex-direction: row-reverse;
-`
 export const Etiqueta = styled.span`
   position: relative;
   top: 16px;
@@ -56,4 +58,13 @@ export const TextCardapio = styled.p`
   margin: 16px 8px;
   line-height: 22px;
   font-size: 14px;
+`
+export const Nota = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+
+  p {
+    padding-right: 8px;
+  }
 `

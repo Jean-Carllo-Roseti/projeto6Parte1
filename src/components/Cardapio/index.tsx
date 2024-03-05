@@ -5,42 +5,43 @@ import {
   ImgCardapio,
   CadapiorLitaTag,
   Etiqueta,
-  LinkPerfil
+  LinkPerfil,
+  Nota
 } from './styles'
 
-import Nota from '../Nota'
 import Tag from '../Tag'
+import Estrela from '../../assets/images/estrela.png'
 
 export type Props = {
-  child: string[]
+  category: string[]
+  title: string
+  description: string
+  nota: string
+  image: string
 }
 
-const Cardapio = ({ child }: Props) => (
+const Cardapio = ({ category, title, description, nota, image }: Props) => (
   <>
     <CardCadapio>
-      <ImgCardapio>
+      <ImgCardapio image={image}>
         <Etiqueta>
-          {child.map((child) => (
-            <Tag key={child}>{child}</Tag>
+          {category.map((category) => (
+            <Tag key={category}>{category}</Tag>
           ))}
         </Etiqueta>
       </ImgCardapio>
       <Borda>
         <CadapiorLitaTag>
           <li>
-            <h3>Nome do Prato</h3>
+            <h3>{title}</h3>
           </li>
           <li>
-            <Nota />
+            <Nota>
+              {nota} <img src={Estrela} />
+            </Nota>
           </li>
         </CadapiorLitaTag>
-        <TextCardapio>
-          Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-          frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-          rápida, embalagens cuidadosas e qualidade garantida.
-          <br />
-          Experimente o Japão sem sair do lar com nosso delivery!
-        </TextCardapio>
+        <TextCardapio>{description}</TextCardapio>
         <LinkPerfil href="#">Saiba mais</LinkPerfil>
       </Borda>
     </CardCadapio>
