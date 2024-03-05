@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import Sushi from '../../assets/images/sushi.png'
-import { TagContainer } from '../Tag/styles'
 
 export const ImgCardapio = styled.div`
   width: 100%;
@@ -10,12 +9,11 @@ export const ImgCardapio = styled.div`
   background-image: url(${Sushi});
   display: flex;
   flex-direction: row-reverse;
-
-  ${TagContainer} {
-    position: absolute;
-    margin-top: 16px;
-    margin-right: 16px;
-  }
+`
+export const Etiqueta = styled.span`
+  position: relative;
+  top: 16px;
+  right: 8px;
 `
 
 export const CardCadapio = styled.div``

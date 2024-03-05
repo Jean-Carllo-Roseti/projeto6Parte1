@@ -5,22 +5,22 @@ const CardapioList = () => (
   <SectionList>
     <List>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones', 'destaque']} />
       </li>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones']} />
       </li>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones']} />
       </li>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones']} />
       </li>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones']} />
       </li>
       <li>
-        <Cardapio />
+        <Cardapio child={['japones']} />
       </li>
     </List>
   </SectionList>

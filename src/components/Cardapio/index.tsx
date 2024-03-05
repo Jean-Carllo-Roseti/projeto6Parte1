@@ -3,17 +3,26 @@ import {
   TextCardapio,
   Borda,
   ImgCardapio,
-  CadapiorLitaTag
+  CadapiorLitaTag,
+  Etiqueta
 } from './styles'
 
 import Nota from '../Nota'
 import Tag from '../Tag'
 
-const Cardapio = () => (
+export type Props = {
+  child: string[]
+}
+
+const Cardapio = ({ child }: Props) => (
   <>
     <CardCadapio>
       <ImgCardapio>
-        <Tag>Japones</Tag>
+        <Etiqueta>
+          {child.map((child) => (
+            <Tag key={child}>{child}</Tag>
+          ))}
+        </Etiqueta>
       </ImgCardapio>
       <Borda>
         <CadapiorLitaTag>

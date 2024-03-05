@@ -6,7 +6,7 @@ export type Props = {
 
 const Tag = ({ children }: Props) => (
   <TagContainer>
-    <a>{children}</a>
+    <span>{children}</span>
   </TagContainer>
 )
 
