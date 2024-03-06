@@ -1,5 +1,5 @@
 import { HeroContainer, HeroText, ImgHero } from './styles'
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../../assets/images/logo.png'
 
 const Hero = () => (
   <HeroContainer>

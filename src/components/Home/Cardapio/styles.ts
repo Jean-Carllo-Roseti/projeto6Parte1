@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { cores } from '../../../styles'
 
-import type Prato from '../../Models/Pratos'
+import type Prato from '../../../Models/Pratos'
 
 export const ImgCardapio = styled.div<Pick<Prato, 'image'>>`
   width: 100%;

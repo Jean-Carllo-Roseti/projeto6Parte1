@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { cores } from '../../../styles'
 
 export const TagContainer = styled.div`
   margin-right: 8px;

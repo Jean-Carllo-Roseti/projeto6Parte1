@@ -1,7 +1,7 @@
 import Prato from '../../Models/Pratos'
-import CardapioList from '../../components/CardapioList'
-import Footer from '../../components/Footer'
-import Hero from '../../components/Hero'
+import CardapioList from '../../components/Home/CardapioList'
+import Footer from '../../components/Home/Footer'
+import Hero from '../../components/Home/Hero'
 
 import Sushi from '../../assets/images/sushi.png'
 

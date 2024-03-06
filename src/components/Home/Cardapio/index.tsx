@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 import Tag from '../Tag'
-import Estrela from '../../assets/images/estrela.png'
+import Estrela from '../../../assets/images/estrela.png'
 
 export type Props = {
   category: string[]

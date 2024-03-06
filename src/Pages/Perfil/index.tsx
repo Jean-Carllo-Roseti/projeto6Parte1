@@ -1,4 +1,4 @@
-import HeaderPerfil from '../../components/HeaderPerfil'
+import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 
 const Perfil = () => (
   <>

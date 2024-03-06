@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import Vector from '../../assets/images/vector.png'
+import { cores } from '../../../styles'
+import Vector from '../../../assets/images/vector.png'
 
 export const HeroContainer = styled.div`
   text-align: center;

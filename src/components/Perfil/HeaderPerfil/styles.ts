@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Vector from '../../assets/images/vector.png'
-import Macarrao from '../../assets/images/macarrao.png'
-import { cores } from '../../styles'
+import Vector from '../../../assets/images/vector.png'
+import Macarrao from '../../../assets/images/macarrao.png'
+import { cores } from '../../../styles'
 
 export const HeaderContainer = styled.header`
   background-image: url(${Vector});

@@ -1,7 +1,7 @@
-import Instagram from '../../assets/images/instagram-round-svgrepo-com (1) 1.png'
-import Facebook from '../../assets/images/facebook-round-svgrepo-com 1.png'
-import Twitter from '../../assets/images/twitter-2-svgrepo-com 1.png'
-import Logo from '../../assets/images/logo.png'
+import Instagram from '../../../assets/images/instagram-round-svgrepo-com (1) 1.png'
+import Facebook from '../../../assets/images/facebook-round-svgrepo-com 1.png'
+import Twitter from '../../../assets/images/twitter-2-svgrepo-com 1.png'
+import Logo from '../../../assets/images/logo.png'
 import { FooterContainer, FooterList, ImgLogo } from './styles'
 
 const Footer = () => (

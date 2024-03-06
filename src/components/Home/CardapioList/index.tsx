@@ -1,4 +1,4 @@
-import Pratos from '../../Models/Pratos'
+import Pratos from '../../../Models/Pratos'
 import Cardapio from '../Cardapio'
 import { List, SectionList } from './styles'
 
