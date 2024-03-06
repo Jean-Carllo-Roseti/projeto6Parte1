@@ -7,7 +7,6 @@ import { SyntaxKind } from 'typescript'
 export const CardContainer = styled.div`
   max-width: 320px;
   width: 100%;
-  height: 338px;
   color: ${cores.trigo};
   background-color: ${cores.salmao};
   padding: 8px;

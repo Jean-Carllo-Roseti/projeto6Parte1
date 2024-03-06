@@ -24,7 +24,6 @@ export const BannerPerfil = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 280px;
   color: ${cores.branca};
   font-size: 32px;
   font-weight: 100;
@@ -48,7 +47,7 @@ export const BannerPerfil = styled.div`
   div:first-child {
     display: flex;
     flex-direction: column;
-    gap: 154px;
+    gap: 156px;
   }
 
   p {
@@ -62,5 +61,5 @@ export const ImaLogo = styled.img`
 export const Paragrafo = styled.h2`
   font-size: 32px;
   font-weight: 900;
-  padding-bottom: 26px;
+  padding-bottom: 32px;
 `

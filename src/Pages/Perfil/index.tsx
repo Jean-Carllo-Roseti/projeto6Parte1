@@ -1,10 +1,12 @@
-import CardPerfil from '../../components/Perfil/CardPerfil'
+import Footer from '../../components/Home/Footer'
 import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
+import OpcoesPerfil from '../../components/Perfil/PerfilList'
 
 const Perfil = () => (
   <>
     <HeaderPerfil />
-    <CardPerfil />
+    <OpcoesPerfil />
+    <Footer />
   </>
 )
 export default Perfil
