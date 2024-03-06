@@ -36,12 +36,12 @@ export const BannerPerfil = styled.div`
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.2);
-    z-index: 2;
+    z-index: 1;
   }
 
   > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
 
   div:first-child {
@@ -51,6 +51,8 @@ export const BannerPerfil = styled.div`
   }
 
   p {
+    position: relative;
+    z-index: 1;
     margin-top: 24px;
   }
 `
@@ -59,6 +61,8 @@ export const ImaLogo = styled.img`
   margin: 64px 0;
 `
 export const Paragrafo = styled.h2`
+  position: relative;
+  z-index: 1;
   font-size: 32px;
   font-weight: 900;
   padding-bottom: 32px;

@@ -10,4 +10,5 @@ export const ButtonPerfil = styled.button`
   font-weight: 700;
   font-size: 14px;
   text-align: center;
+  cursor: pointer;
 `
