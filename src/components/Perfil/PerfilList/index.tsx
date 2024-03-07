@@ -1,29 +1,23 @@
 import CardPerfil from '../CardPerfil'
-import { OpcoesContainer, PerfilList } from './styles'
+import { PerfilList } from './styles'
 
-const OpcoesPerfil = () => (
-  <OpcoesContainer className="container">
+import type Prato from '../../../Models/Pratos'
+
+export type Opcoes = Pick<Prato, 'image' | 'title' | 'id' | 'description'>[]
+
+const OpcoesPerfil = ({ pratos }: { pratos: Opcoes }) => (
+  <div className="container">
     <PerfilList>
-      <li>
-        <CardPerfil />
-      </li>
-      <li>
-        <CardPerfil />
-      </li>
-      <li>
-        <CardPerfil />
-      </li>
-      <li>
-        <CardPerfil />
-      </li>
-      <li>
-        <CardPerfil />
-      </li>
-      <li>
-        <CardPerfil />
-      </li>
+      {pratos.map((opcao) => (
+        <CardPerfil
+          key={opcao.id}
+          description={opcao.description}
+          title={opcao.title}
+          image={opcao.image}
+        />
+      ))}
     </PerfilList>
-  </OpcoesContainer>
+  </div>
 )
 
 export default OpcoesPerfil

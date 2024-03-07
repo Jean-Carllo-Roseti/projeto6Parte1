@@ -1,19 +1,23 @@
 import { CardContainer, DescriptionPerfil } from './styles'
 
-import pizza from '../../../assets/images/pizzaPerfil.png'
 import Botao from '../ButtonPerfil'
 
-const CardPerfil = () => (
+export type Props = {
+  description: string
+  title: string
+  image: string
+  children?: React.ReactNode
+}
+
+const CardPerfil = ({ children, description, image, title }: Props) => (
   <CardContainer>
     <div>
-      <img src={pizza} alt="" />
+      <img src={image} alt="imagem dos pratos" />
     </div>
+    {children}
     <DescriptionPerfil>
-      <h3>Pizza Marguerita</h3>
-      <p>
-        A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-        manjericão fresco e um toque de azeite. Sabor e simplicidade!
-      </p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </DescriptionPerfil>
     <div>
       <Botao>Adicionar ao carrinho</Botao>

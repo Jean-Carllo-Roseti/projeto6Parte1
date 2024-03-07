@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import pizza from '../../../assets/images/pizzaPerfil.png'
 import { cores } from '../../../styles'
-import { SyntaxKind } from 'typescript'
 
 export const CardContainer = styled.div`
   max-width: 320px;
@@ -21,7 +19,7 @@ export const DescriptionPerfil = styled.div`
   h3 {
     font-weight: 900;
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 19px;
   }
 `
