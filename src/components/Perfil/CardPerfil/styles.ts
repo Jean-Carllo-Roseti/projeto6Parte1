@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { cores } from '../../../styles'
+import { ButtonPerfil } from '../ButtonPerfil/styled'
 
 export const CardContainer = styled.div`
   max-width: 320px;
@@ -8,6 +9,10 @@ export const CardContainer = styled.div`
   color: ${cores.trigo};
   background-color: ${cores.salmao};
   padding: 8px;
+
+  ${ButtonPerfil} {
+    width: 100%;
+  }
 `
 
 export const DescriptionPerfil = styled.div`

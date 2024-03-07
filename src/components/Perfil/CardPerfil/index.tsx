@@ -20,7 +20,7 @@ const CardPerfil = ({ children, description, image, title }: Props) => (
       <p>{description}</p>
     </DescriptionPerfil>
     <div>
-      <Botao>Adicionar ao carrinho</Botao>
+      <Botao tipo={'product'}>Adicionar ao carrinho</Botao>
     </div>
   </CardContainer>
 )
