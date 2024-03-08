@@ -13,7 +13,6 @@ export const PerfilList = styled.ul`
   color: ${cores.salmao};
   font-weight: 900;
   font-size: 18px;
-
   li:first-child {
     margin-right: 98px;
   }
@@ -24,29 +23,13 @@ export const ContainerPerfil = styled.div`
   margin: 0 auto;
 `
 export const BannerPerfil = styled.div`
+  position: relative;
   background-image: url(${Macarrao});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   color: ${cores.branca};
   font-size: 32px;
-  font-weight: 100;
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
 
   div:first-child {
     display: flex;
@@ -55,19 +38,29 @@ export const BannerPerfil = styled.div`
   }
 
   p {
-    position: relative;
-    z-index: 1;
+    font-weight: 100;
     margin-top: 24px;
+    z-index: 1;
+  }
+
+  &::after {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    opacity: 0.56;
   }
 `
 
 export const ImaLogo = styled.img`
   margin: 64px 0;
 `
-export const Paragrafo = styled.h2`
-  position: relative;
-  z-index: 1;
+export const SubTitulo = styled.h2`
   font-size: 32px;
   font-weight: 900;
   padding-bottom: 32px;
+  z-index: 1;
 `

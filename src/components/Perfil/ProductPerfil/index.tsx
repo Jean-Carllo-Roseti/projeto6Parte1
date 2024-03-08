@@ -28,7 +28,7 @@ const ProductPerfil = () => (
         <br />
         Serve: de 2 a 3 pessoas
       </p>
-      <ButtonPerfil tipo={'modal'}>Acidionar ao carrinho-R$ 69,90</ButtonPerfil>
+      <ButtonPerfil>Acidionar ao carrinho-R$ 69,90</ButtonPerfil>
     </DescriptionPerfil>
   </CardProduct>
 )

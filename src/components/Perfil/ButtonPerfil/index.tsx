@@ -11,27 +11,21 @@ import ProductPerfil from '../ProductPerfil'
 
 export type Props = {
   children: string
-  tipo: 'modal' | 'product'
 }
 
-const Botao = ({ children, tipo }: Props) => {
+const Botao = ({ children }: Props) => {
   const [showDiv, setShowDiv] = useState(false)
 
-  // Usando o operador ternário para renderização condicional baseada no tipo
   return (
     <>
       <ButtonPerfil onClick={() => setShowDiv(true)}>{children}</ButtonPerfil>
       {showDiv && (
         <Overlay onClick={() => setShowDiv(false)}>
           <OverlayContent onClick={(e) => e.stopPropagation()}>
-            {tipo === 'product' && (
-              <>
-                <CloseButton onClick={() => setShowDiv(false)}>
-                  <CloseIcon src={close} alt="Fechar" />
-                </CloseButton>
-                <ProductPerfil />
-              </>
-            )}
+            <ProductPerfil />
+            <CloseButton onClick={() => setShowDiv(false)}>
+              <CloseIcon src={close} alt="Fechar" />
+            </CloseButton>
           </OverlayContent>
         </Overlay>
       )}

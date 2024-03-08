@@ -1,5 +1,5 @@
 import SideCard from '../AsideCard'
-import { Side, SideList } from './styles'
+import { Side, SideButton, SideList } from './styles'
 
 // export type Props = {
 //   image: string
@@ -16,7 +16,7 @@ const Aside = () => (
       <li>Valor total</li>
       <li>R$ 182,70</li>
     </SideList>
-    <button>Continuar com a entrega</button>
+    <SideButton>Continuar com a entrega</SideButton>
   </Side>
 )
 

@@ -5,7 +5,7 @@ import {
   ContainerPerfil,
   BannerPerfil,
   ImaLogo,
-  Paragrafo
+  SubTitulo
 } from './styles'
 
 const HeaderPerfil = () => (
@@ -20,11 +20,9 @@ const HeaderPerfil = () => (
       </PerfilList>
     </ContainerPerfil>
     <BannerPerfil>
-      <div>
-        <div className="container">
-          <p>italiana</p>
-          <Paragrafo>La Doce Vita Trattoia</Paragrafo>
-        </div>
+      <div className="container">
+        <p>italiana</p>
+        <SubTitulo>La Doce Vita Trattoia</SubTitulo>
       </div>
     </BannerPerfil>
   </HeaderContainer>
