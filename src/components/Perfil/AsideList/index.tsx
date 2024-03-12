@@ -1,14 +1,15 @@
 import SideCard from '../AsideCard'
 import { Side, SideButton, SideList } from './styles'
 
-// export type Props = {
-//   image: string
-//   title: string
-//   description: string
-// }
+export type Props = {
+  // image: string
+  // title: string
+  // description: string
+  type: 'ativo' | 'none'
+}
 
-const Aside = () => (
-  <Side>
+const Aside = ({ type }: Props) => (
+  <Side type={type}>
     <SideCard />
     <SideCard />
     <SideCard />

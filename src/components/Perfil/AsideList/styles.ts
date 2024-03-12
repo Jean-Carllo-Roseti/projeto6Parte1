@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
+import { Props } from '.'
 
-export const Side = styled.div`
-  position: fixed; /* Ou absolute */
+export const Side = styled.div<Props>`
+  position: absolute;
   top: 0;
   right: 0;
   width: 360px;
   background-color: ${cores.salmao};
   padding: 32px 8px;
-  height: 500px;
+  height: 200%;
+  display: ${(props) => (props.type === 'ativo' ? 'block' : 'none')};
+  z-index: 1;
 `
 export const SideList = styled.ul`
   font-weight: 700;

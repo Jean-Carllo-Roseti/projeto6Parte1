@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { cores } from '../../../styles'
-import { ButtonPerfil } from '../ButtonPerfil/styled'
 
 export const CardContainer = styled.div`
   max-width: 320px;
@@ -9,10 +8,6 @@ export const CardContainer = styled.div`
   color: ${cores.trigo};
   background-color: ${cores.salmao};
   padding: 8px;
-
-  ${ButtonPerfil} {
-    width: 100%;
-  }
 `
 
 export const DescriptionPerfil = styled.div`
@@ -27,4 +22,15 @@ export const DescriptionPerfil = styled.div`
     font-size: 18px;
     line-height: 19px;
   }
+`
+export const ButtonCard = styled.button`
+  color: ${cores.salmao};
+  background-color: ${cores.trigo};
+  border: none;
+  width: 100%;
+  padding: 4px 6px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
 `

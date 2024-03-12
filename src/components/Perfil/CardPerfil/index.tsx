@@ -1,6 +1,6 @@
-import { CardContainer, DescriptionPerfil } from './styles'
-
-import Botao from '../ButtonPerfil'
+import { useState } from 'react'
+import ProductPerfil from '../ProductPerfil'
+import { ButtonCard, CardContainer, DescriptionPerfil } from './styles'
 
 export type Props = {
   description: string
@@ -9,20 +9,29 @@ export type Props = {
   children?: React.ReactNode
 }
 
-const CardPerfil = ({ children, description, image, title }: Props) => (
-  <CardContainer>
-    <div>
-      <img src={image} alt="imagem dos pratos" />
-    </div>
-    {children}
-    <DescriptionPerfil>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </DescriptionPerfil>
-    <div>
-      <Botao>Adicionar ao carrinho</Botao>
-    </div>
-  </CardContainer>
-)
+const CardPerfil = ({ children, description, image, title }: Props) => {
+  const [modalAberto, setModalAberto] = useState(false)
+
+  return (
+    <>
+      <CardContainer>
+        <div>
+          <img src={image} alt="imagem dos pratos" />
+        </div>
+        {children}
+        <DescriptionPerfil>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </DescriptionPerfil>
+        <div>
+          <ButtonCard onClick={() => setModalAberto(true)}>
+            Adicionar ao carrinho
+          </ButtonCard>
+        </div>
+      </CardContainer>
+      {modalAberto && <ProductPerfil onClose={() => setModalAberto(false)} />}
+    </>
+  )
+}
 
 export default CardPerfil
