@@ -22,3 +22,6 @@ const Aside = ({ type }: Props) => (
 )
 
 export default Aside
+{
+  /*de ser um aarray */
+}

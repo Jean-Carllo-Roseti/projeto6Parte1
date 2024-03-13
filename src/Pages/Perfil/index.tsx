@@ -54,7 +54,7 @@ const Perfil = () => (
   <>
     <HeaderPerfil />
     <OpcoesPerfil pratos={perfilPratos} />
-    <Aside type={'none'} />
+    <Aside type={'ativo'} />
     <Footer />
   </>
 )

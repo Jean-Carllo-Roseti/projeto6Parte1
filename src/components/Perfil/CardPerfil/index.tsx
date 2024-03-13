@@ -12,6 +12,8 @@ export type Props = {
 const CardPerfil = ({ children, description, image, title }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
 
+  const fecharModal = () => setModalAberto(false)
+
   return (
     <>
       <CardContainer>
@@ -29,7 +31,7 @@ const CardPerfil = ({ children, description, image, title }: Props) => {
           </ButtonCard>
         </div>
       </CardContainer>
-      {modalAberto && <ProductPerfil onClose={() => setModalAberto(false)} />}
+      {modalAberto && <ProductPerfil onFechar={fecharModal} />}
     </>
   )
 }
