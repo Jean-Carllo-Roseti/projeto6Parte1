@@ -1,6 +1,6 @@
 import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 import OpcoesPerfil, { Opcoes } from '../../components/Perfil/PerfilList'
-import Aside from '../../components/Perfil/AsideList'
+
 import Footer from '../../components/Home/Footer'
 
 import pizza from '../../assets/images/pizzaPerfil.png'
@@ -54,7 +54,6 @@ const Perfil = () => (
   <>
     <HeaderPerfil />
     <OpcoesPerfil pratos={perfilPratos} />
-    <Aside type={'ativo'} />
     <Footer />
   </>
 )

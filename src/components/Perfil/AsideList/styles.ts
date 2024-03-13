@@ -10,7 +10,7 @@ export const Side = styled.div<Props>`
   background-color: ${cores.salmao};
   padding: 32px 8px;
   height: 200%;
-  display: ${(props) => (props.type === 'ativo' ? 'block' : 'none')};
+  display: block;
   z-index: 1;
 `
 export const SideList = styled.ul`

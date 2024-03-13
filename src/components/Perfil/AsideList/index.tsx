@@ -5,11 +5,10 @@ export type Props = {
   // image: string
   // title: string
   // description: string
-  type: 'ativo' | 'none'
 }
 
-const Aside = ({ type }: Props) => (
-  <Side type={type}>
+const Aside = () => (
+  <Side>
     <SideCard />
     <SideCard />
     <SideCard />
