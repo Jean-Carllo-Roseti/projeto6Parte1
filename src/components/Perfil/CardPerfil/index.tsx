@@ -31,7 +31,14 @@ const CardPerfil = ({ children, description, image, title }: Props) => {
           </ButtonCard>
         </div>
       </CardContainer>
-      {modalAberto && <ProductPerfil onFechar={fecharModal} />}
+      {modalAberto && (
+        <ProductPerfil
+          image={''}
+          title={''}
+          description={''}
+          onFechar={fecharModal}
+        />
+      )}
     </>
   )
 }

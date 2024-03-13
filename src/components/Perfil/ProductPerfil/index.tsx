@@ -3,20 +3,21 @@ import { useState } from 'react'
 import { DescriptionPerfil } from '../CardPerfil/styles'
 import { CardProduct, Modal, ButtonModal, ImageX, ImgPrato } from './styles'
 import Aside from '../AsideList'
-import pizza from '../../../assets/images/pizzaPerfil.png'
-import fechar from '../../../assets/images/fechar.png'
 
 type Props = {
+  image: string
+  title: string
+  description: string
   onFechar: () => void
 }
 
-const ProductPerfil = ({ onFechar }: Props) => {
+const ProductPerfil = ({ onFechar, title, image, description }: Props) => {
   const [isCardProductVisible, setIsCardProductVisible] = useState(true)
   const [isModalVisible, setIsModalVisible] = useState(true)
   const [sideON, setSideOn] = useState(false)
 
-  // Função para fechar o modal quando o overlay é clicado
   const handleModalClick = (event: React.MouseEvent) => {
+    //quando ocorrer o click no overlay a o mesmo some
     if (event.target === event.currentTarget) {
       setIsModalVisible(false)
     }
@@ -28,7 +29,7 @@ const ProductPerfil = ({ onFechar }: Props) => {
         {isCardProductVisible && (
           <CardProduct>
             <ImageX
-              src={fechar}
+              src={image}
               alt="image de X "
               onClick={(event) => {
                 event.stopPropagation()
@@ -36,24 +37,10 @@ const ProductPerfil = ({ onFechar }: Props) => {
                 onFechar()
               }}
             />
-            <ImgPrato src={pizza} alt="imagem do prato." />
+            <ImgPrato src={image} alt="imagem do prato." />
             <DescriptionPerfil>
-              <h2>Pizza Marguerita</h2>
-              <p>
-                A pizza Margherita é uma pizza clássica da culinária italiana,
-                reconhecida por sua simplicidade e sabor inigualável. Ela é
-                feita com uma base de massa fina e crocante, coberta com molho
-                de tomate fresco, queijo mussarela de alta qualidade, manjericão
-                fresco e azeite de oliva extra-virgem. A combinação de sabores é
-                perfeita, com o molho de tomate suculento e ligeiramente ácido,
-                o queijo derretido e cremoso e as folhas de manjericão frescas,
-                que adicionam um toque de sabor herbáceo. É uma pizza simples,
-                mas deliciosa, que agrada a todos os paladares e é uma ótima
-                opção para qualquer ocasião.
-                <br />
-                <br />
-                Serve: de 2 a 3 pessoas
-              </p>
+              <h2>{title}</h2>
+              <p>{description}</p>
               <ButtonModal
                 onClick={() => {
                   setIsCardProductVisible(false)
