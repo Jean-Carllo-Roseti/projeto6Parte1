@@ -5,7 +5,8 @@ export const cores = {
   branca: '#FFFFFF',
   fundoBody: '#FFF8F2',
   trigo: '#FFEBD9',
-  salmao: '#E66767'
+  salmao: '#E66767',
+  letraInpunt: '#4B4B4B'
 }
 
 export const GlobalCss = createGlobalStyle`

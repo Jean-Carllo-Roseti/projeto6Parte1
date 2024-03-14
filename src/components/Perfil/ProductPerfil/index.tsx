@@ -45,7 +45,6 @@ const ProductPerfil = ({ onFechar, title, image, description }: Props) => {
                 onClick={() => {
                   setIsCardProductVisible(false)
                   setSideOn(true)
-                  // onFechar()
                 }}
               >
                 Acidionar ao carrinho-R$ 69,90

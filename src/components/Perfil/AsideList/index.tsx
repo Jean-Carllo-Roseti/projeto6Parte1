@@ -1,4 +1,7 @@
 import SideCard from '../AsideCard'
+import FormEntrega from '../FormEntrega'
+import FormPagamento from '../FormPagamento'
+import Recibo from '../ReciboPedido'
 import { Side, SideButton, SideList } from './styles'
 
 export type Props = {
@@ -17,10 +20,10 @@ const Aside = () => (
       <li>R$ 182,70</li>
     </SideList>
     <SideButton>Continuar com a entrega</SideButton>
+    <br />
+    <br />
+    <Recibo />
   </Side>
 )
 
 export default Aside
-{
-  /*de ser um aarray */
-}

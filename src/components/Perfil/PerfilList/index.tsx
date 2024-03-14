@@ -2,18 +2,20 @@ import CardPerfil from '../CardPerfil'
 import { PerfilList } from './styles'
 
 import type Prato from '../../../Models/Pratos'
+import { ProductSelecionado } from '../../../Pages/Perfil'
 
 export type Opcoes = Pick<Prato, 'image' | 'title' | 'id' | 'description'>[]
 
 const OpcoesPerfil = ({ pratos }: { pratos: Opcoes }) => (
   <div className="container">
     <PerfilList>
-      {pratos.map((opcao) => (
+      {pratos.map(({ id, description, title, image }) => (
         <CardPerfil
-          key={opcao.id}
-          description={opcao.description}
-          title={opcao.title}
-          image={opcao.image}
+          key={''}
+          description={''}
+          title={''}
+          image={''}
+          pratosPerfil={[{ id, description, title, image }]}
         />
       ))}
     </PerfilList>
