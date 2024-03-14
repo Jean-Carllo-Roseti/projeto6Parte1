@@ -40,4 +40,5 @@ export const Subtitulo = styled.h3`
 `
 export const Buttondiv = styled.div`
   margin-top: 24px;
+  margin-bottom: 8px;
 `

@@ -1,7 +1,15 @@
 import { SideButton } from '../AsideList/styles'
 import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
 
-const FormEntrega = () => (
+interface FormEntregaProps {
+  avancaParaPagamento: () => void
+  avancaParaCarrinho: () => void // Supondo que seja uma função sem parâmetros e retorno void
+}
+
+const FormEntrega = ({
+  avancaParaPagamento,
+  avancaParaCarrinho
+}: FormEntregaProps) => (
   <div>
     <Subtitulo>Entrega</Subtitulo>
     <Formulario>
@@ -24,8 +32,12 @@ const FormEntrega = () => (
       <label htmlFor="complemento">Complemento (opcional)</label>
       <input type="text" name="complemento" />
       <Buttondiv>
-        <SideButton>Continuar com o pagamento</SideButton>
-        <SideButton>voltar para o carrinho</SideButton>
+        <SideButton onClick={avancaParaPagamento}>
+          Continuar com o pagamento
+        </SideButton>
+        <SideButton onClick={avancaParaCarrinho}>
+          voltar para o carrinho
+        </SideButton>
       </Buttondiv>
     </Formulario>
   </div>

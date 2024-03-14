@@ -1,23 +1,15 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 
-export const ContentRecibo = styled.div`
+export const SideList = styled.ul`
+  font-weight: 700;
+  font-size: 14px;
   color: ${cores.trigo};
-  h3 {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 18.75px;
-    margin-bottom: 16px;
-  }
-
-  p {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 24px;
-  }
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
 `
-export const ButtonRecibo = styled.button`
+export const SideButton = styled.button`
   color: ${cores.salmao};
   background-color: ${cores.trigo};
   border: none;
@@ -27,4 +19,5 @@ export const ButtonRecibo = styled.button`
   font-size: 14px;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 8px;
 `

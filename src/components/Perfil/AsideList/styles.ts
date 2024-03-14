@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
-import { Props } from '.'
 
-export const Side = styled.div<Props>`
+export const Side = styled.div`
   position: absolute;
   top: 0;
   right: 0;
