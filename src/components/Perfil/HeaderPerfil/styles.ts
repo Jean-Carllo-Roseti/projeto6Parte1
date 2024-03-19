@@ -20,6 +20,7 @@ export const ContainerPerfil = styled.div`
   margin: 0 auto;
 `
 export const BannerPerfil = styled.div`
+  position: relative;
   background-image: url(${Macarrao});
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,32 +29,26 @@ export const BannerPerfil = styled.div`
   font-size: 32px;
   font-weight: 100;
 
-  ::after {
-    content: '';
+  &::after {
     position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  div:first-child {
-    display: flex;
-    flex-direction: column;
-    gap: 156px;
+    opacity: 0.5;
+    content: '';
   }
 
   p {
-    position: relative;
     z-index: 1;
     margin-top: 24px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 156px;
   }
 `
 
@@ -61,7 +56,6 @@ export const ImaLogo = styled.img`
   margin: 64px 0;
 `
 export const Paragrafo = styled.h2`
-  position: relative;
   z-index: 1;
   font-size: 32px;
   font-weight: 900;
