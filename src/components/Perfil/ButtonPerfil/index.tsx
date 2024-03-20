@@ -5,9 +5,11 @@ export type Props = {
   onClick?: () => void
 }
 
-const Botao = ({ children }: Props) => (
+const Botao = ({ children, onClick }: Props) => (
   <>
-    <ButtonPerfil type="button">{children}</ButtonPerfil>
+    <ButtonPerfil onClick={onClick} type="button">
+      {children}
+    </ButtonPerfil>
   </>
 )
 
