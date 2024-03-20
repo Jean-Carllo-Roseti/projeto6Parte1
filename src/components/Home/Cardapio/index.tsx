@@ -11,7 +11,6 @@ import {
   ImgEstrela
 } from './styles'
 
-import Tag from '../Tag'
 import Estrela from '../../../assets/images/estrela.png'
 import { Pratos } from '../../../Pages/Home'
 
@@ -24,11 +23,7 @@ const Cardapio = ({ tipo, titulo, descricao, avaliacao, capa }: Props) => (
   <>
     <CardCadapio>
       <ImgCardapio capa={capa}>
-        <Etiqueta>
-          {tipo.map((tipo) => (
-            <Tag key={tipo}>{tipo}</Tag>
-          ))}
-        </Etiqueta>
+        <Etiqueta>{tipo}</Etiqueta>
       </ImgCardapio>
       <Borda>
         <CadapiorListaTag>

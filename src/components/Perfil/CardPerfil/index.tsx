@@ -8,26 +8,31 @@ import {
   PerfilModal
 } from './styles'
 
-import pizza from '../../../assets/images/pizzaPerfil.png'
 import Botao from '../ButtonPerfil'
 import { useState } from 'react'
 
-import Pizza from '../../../assets/images/pizzaPerfil.png'
 import Fechar from '../../../assets/images/fechar.png'
-import { Pratos } from '../../../Pages/Home'
 
-const CardPerfil = ({ cardapio }: Pratos) => {
+type CardapioPros = {
+  foto: string
+  preco: string
+  nome: string
+  descricao: string
+  porcao: string
+}
+
+const CardPerfil = ({ foto, descricao, nome, porcao }: CardapioPros) => {
   const [modalAberto, setModalAberto] = useState(false)
 
   return (
     <>
       <CardContainer>
         <div>
-          <img src={pizza} alt="fotografia de um prato do cardápio" />
+          <img src={foto} alt="fotografia de um prato do cardápio" />
         </div>
         <DescriptionPerfil>
-          <h3>{cardapio.nome}</h3>
-          <p>{cardapio.descricao}</p>
+          <h3>{nome}</h3>
+          <p>{descricao}</p>
         </DescriptionPerfil>
         <div>
           <Botao onClick={() => setModalAberto(true)}>
@@ -38,17 +43,17 @@ const CardPerfil = ({ cardapio }: Pratos) => {
       <Modal className={modalAberto ? 'visible' : ''}>
         <PerfilModal className="container">
           <div>
-            <ImagePerfil src={Pizza} alt="imagem da pizza" />
+            <ImagePerfil src={Fechar} alt="imagem da pizza" />
           </div>
           <PerfilDetails>
-            <h3>{cardapio.nome}</h3>
+            <h3>{nome}</h3>
             <DescriptionPerfil>
-              {cardapio.descricao}
+              {descricao}
               <br />
               <br />
-              Serve: de 2 a 3 pessoas
+              {porcao}
             </DescriptionPerfil>
-            <Botao>Adicionar ao carrinho - R$ 60,90</Botao>
+            <Botao>Adicionar ao carrinho - R$ 70,00</Botao>
           </PerfilDetails>
           <ImageFechar
             onClick={() => setModalAberto(false)}
