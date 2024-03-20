@@ -13,37 +13,35 @@ import {
 
 import Tag from '../Tag'
 import Estrela from '../../../assets/images/estrela.png'
+import { Pratos } from '../../../Pages/Home'
 
-export type Props = {
-  category: string[]
-  title: string
-  description: string
-  nota: string
-  image: string
-}
+type Props = Pick<
+  Pratos,
+  'titulo' | 'descricao' | 'avaliacao' | 'capa' | 'tipo'
+>
 
-const Cardapio = ({ category, title, description, nota, image }: Props) => (
+const Cardapio = ({ tipo, titulo, descricao, avaliacao, capa }: Props) => (
   <>
     <CardCadapio>
-      <ImgCardapio image={image}>
+      <ImgCardapio capa={capa}>
         <Etiqueta>
-          {category.map((category) => (
-            <Tag key={category}>{category}</Tag>
+          {tipo.map((tipo) => (
+            <Tag key={tipo}>{tipo}</Tag>
           ))}
         </Etiqueta>
       </ImgCardapio>
       <Borda>
         <CadapiorListaTag>
           <li>
-            <h3>{title}</h3>
+            <h3>{titulo}</h3>
           </li>
           <li>
             <Nota>
-              {nota} <ImgEstrela src={Estrela} />
+              {avaliacao} <ImgEstrela src={Estrela} />
             </Nota>
           </li>
         </CadapiorListaTag>
-        <TextCardapio>{description}</TextCardapio>
+        <TextCardapio>{descricao}</TextCardapio>
         <Link to="/perfil">Saiba mais</Link>
       </Borda>
     </CardCadapio>

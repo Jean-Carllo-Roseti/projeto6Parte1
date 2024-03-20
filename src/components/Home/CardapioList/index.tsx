@@ -1,8 +1,8 @@
-import Pratos from '../../../Models/Pratos'
+import { Pratos } from '../../../Pages/Home'
 import Cardapio from '../Cardapio'
 import { List, SectionList } from './styles'
 
-export type Props = {
+type Props = {
   pratos: Pratos[]
 }
 
@@ -12,11 +12,11 @@ const CardapioList = ({ pratos }: Props) => (
       {pratos.map((pratos) => (
         <Cardapio
           key={pratos.id}
-          category={pratos.category}
-          description={pratos.description}
-          title={pratos.title}
-          nota={pratos.nota}
-          image={pratos.image}
+          descricao={pratos.descricao}
+          tipo={pratos.tipo}
+          titulo={pratos.titulo}
+          avaliacao={pratos.avaliacao}
+          capa={pratos.capa}
         />
       ))}
     </List>

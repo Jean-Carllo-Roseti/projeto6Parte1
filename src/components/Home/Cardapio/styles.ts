@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 
-import type Prato from '../../../Models/Pratos'
+import { Pratos } from '../../../Pages/Home'
 
-export const ImgCardapio = styled.div<Pick<Prato, 'image'>>`
+export const ImgCardapio = styled.div<Pick<Pratos, 'capa'>>`
   width: 100%;
   max-width: 472px;
   height: 217px;
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.capa});
   flex-direction: row-reverse;
   display: flex;
 `
