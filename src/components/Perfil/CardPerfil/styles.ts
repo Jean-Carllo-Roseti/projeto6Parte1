@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import pizza from '../../../assets/images/pizzaPerfil.png'
 import { cores } from '../../../styles'
-import { SyntaxKind } from 'typescript'
 
 export const CardContainer = styled.div`
   max-width: 320px;

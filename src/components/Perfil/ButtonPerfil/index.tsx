@@ -2,6 +2,7 @@ import { ButtonPerfil } from './styled'
 
 export type Props = {
   children: string
+  onClick?: () => void
 }
 
 const Botao = ({ children }: Props) => (
