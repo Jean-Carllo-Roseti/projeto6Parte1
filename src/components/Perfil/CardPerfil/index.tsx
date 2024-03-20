@@ -10,29 +10,32 @@ import {
 
 import Botao from '../ButtonPerfil'
 import { useState } from 'react'
+import { Pratos } from '../../../Pages/Home'
 
 import Fechar from '../../../assets/images/fechar.png'
 
-type CardapioPros = {
-  foto: string
-  preco: string
-  nome: string
-  descricao: string
-  porcao: string
-}
+// type CardapioPros = {
+//   foto: string
+//   preco: string
+//   nome: string
+//   descricao: string
+//   porcao: string
+// }
 
-const CardPerfil = ({ foto, descricao, nome, porcao }: CardapioPros) => {
+type Props = Pick<Pratos, 'cardapio'>
+
+const CardPerfil = ({ cardapio }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
 
   return (
     <>
       <CardContainer>
         <div>
-          <img src={foto} alt="fotografia de um prato do cardápio" />
+          <img src={cardapio.foto} alt="fotografia de um prato do cardápio" />
         </div>
         <DescriptionPerfil>
-          <h3>{nome}</h3>
-          <p>{descricao}</p>
+          <h3>{cardapio.nome}</h3>
+          <p>{cardapio.descricao}</p>
         </DescriptionPerfil>
         <div>
           <Botao onClick={() => setModalAberto(true)}>
@@ -46,12 +49,12 @@ const CardPerfil = ({ foto, descricao, nome, porcao }: CardapioPros) => {
             <ImagePerfil src={Fechar} alt="imagem da pizza" />
           </div>
           <PerfilDetails>
-            <h3>{nome}</h3>
+            <h3>{cardapio.nome}</h3>
             <DescriptionPerfil>
-              {descricao}
+              {cardapio.descricao}
               <br />
               <br />
-              {porcao}
+              {cardapio.porcao}
             </DescriptionPerfil>
             <Botao>Adicionar ao carrinho - R$ 70,00</Botao>
           </PerfilDetails>
