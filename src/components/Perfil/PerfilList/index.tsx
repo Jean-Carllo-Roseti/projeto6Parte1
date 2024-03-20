@@ -15,8 +15,8 @@ const OpcoesPerfil = ({ pratos }: Props) => {
             {pratos.map((prato) => (
               <CardPerfil
                 key={prato.cardapio.id}
-                descricao={prato.cardapio.descricao}
                 foto={prato.cardapio.foto}
+                descricao={prato.cardapio.descricao}
                 nome={prato.cardapio.nome}
                 porcao={prato.cardapio.porcao}
                 preco={prato.cardapio.preco}
