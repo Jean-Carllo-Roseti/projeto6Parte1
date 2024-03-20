@@ -11,18 +11,21 @@ const OpcoesPerfil = ({ pratos }: Props) => {
     <>
       <OpcoesContainer className="container">
         <PerfilList>
-          <li>
-            {pratos.map((prato) => (
+          {pratos.map((prato) => (
+            <li key={prato.cardapio.id}>
               <CardPerfil
-                key={prato.cardapio.id}
-                foto={prato.cardapio.foto}
-                descricao={prato.cardapio.descricao}
-                nome={prato.cardapio.nome}
-                porcao={prato.cardapio.porcao}
-                preco={prato.cardapio.preco}
+                //obejto unico sendo passado, diferente do anterior
+                cardapio={{
+                  foto: prato.cardapio.foto,
+                  descricao: prato.cardapio.descricao,
+                  nome: prato.cardapio.nome,
+                  porcao: prato.cardapio.porcao,
+                  preco: prato.cardapio.preco,
+                  id: prato.cardapio.id
+                }}
               />
-            ))}
-          </li>
+            </li>
+          ))}
         </PerfilList>
       </OpcoesContainer>
     </>
@@ -30,3 +33,18 @@ const OpcoesPerfil = ({ pratos }: Props) => {
 }
 
 export default OpcoesPerfil
+
+{
+  /* <li>
+{pratos.map((prato) => ( props separadas, não esta de acordo com a props declarada no CardPerfil
+  <CardPerfil
+    key={prato.cardapio.id}
+    foto={prato.cardapio.foto}
+    descricao={prato.cardapio.descricao}
+    nome={prato.cardapio.nome}
+    porcao={prato.cardapio.porcao}
+    preco={prato.cardapio.preco}
+  />
+))}
+</li> */
+}

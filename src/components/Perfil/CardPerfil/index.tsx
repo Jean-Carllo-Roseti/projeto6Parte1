@@ -23,19 +23,26 @@ import Fechar from '../../../assets/images/fechar.png'
 // }
 
 type Props = Pick<Pratos, 'cardapio'>
-
 const CardPerfil = ({ cardapio }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
+
+  // Se cardapio for undefined, o componente renderiza um conteúdo alternativo ou retorna null
+  if (!cardapio) {
+    return <div>Carregando informações do cardápio...</div> // Ou qualquer outra mensagem de fallback que preferir
+  }
 
   return (
     <>
       <CardContainer>
         <div>
-          <img src={cardapio.foto} alt="fotografia de um prato do cardápio" />
+          <img
+            src={cardapio?.foto ?? 'pathToDefaultImage'}
+            alt="fotografia de um prato do cardápio"
+          />
         </div>
         <DescriptionPerfil>
-          <h3>{cardapio.nome}</h3>
-          <p>{cardapio.descricao}</p>
+          <h3>{cardapio?.nome ?? 'Nome padrão'}</h3>
+          <p>{cardapio?.descricao ?? 'Descrição padrão'}</p>
         </DescriptionPerfil>
         <div>
           <Botao onClick={() => setModalAberto(true)}>
@@ -49,19 +56,19 @@ const CardPerfil = ({ cardapio }: Props) => {
             <ImagePerfil src={Fechar} alt="imagem da pizza" />
           </div>
           <PerfilDetails>
-            <h3>{cardapio.nome}</h3>
+            <h3>{cardapio?.nome ?? 'Nome padrão'}</h3>
             <DescriptionPerfil>
-              {cardapio.descricao}
+              {cardapio?.descricao ?? 'Descrição padrão'}
               <br />
               <br />
-              {cardapio.porcao}
+              {cardapio?.porcao ?? 'Porção padrão'}
             </DescriptionPerfil>
             <Botao>Adicionar ao carrinho - R$ 70,00</Botao>
           </PerfilDetails>
           <ImageFechar
             onClick={() => setModalAberto(false)}
             src={Fechar}
-            alt="icone de fechar "
+            alt="icone de fechar"
           />
         </PerfilModal>
         <div className="overlay" onClick={() => setModalAberto(false)}></div>

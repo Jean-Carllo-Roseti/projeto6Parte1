@@ -17,6 +17,7 @@ const CardapioList = ({ pratos }: Props) => (
           titulo={pratos.titulo}
           avaliacao={pratos.avaliacao}
           capa={pratos.capa}
+          cardapio={{ id: pratos.cardapio.id }}
         />
       ))}
     </List>

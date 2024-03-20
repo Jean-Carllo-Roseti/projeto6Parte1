@@ -14,9 +14,22 @@ import {
 import Estrela from '../../../assets/images/estrela.png'
 import { Pratos } from '../../../Pages/Home'
 
-type Props = Omit<Pratos, 'cardapio' | 'destacado' | 'id'>
+type CardapioType = Pratos['cardapio']
 
-const Cardapio = ({ tipo, titulo, descricao, avaliacao, capa }: Props) => (
+type CardapioOnli = Pick<CardapioType, 'id'>
+
+type Props = Omit<Pratos, 'destacado' | 'id' | 'cardapio'> & {
+  cardapio: CardapioOnli
+}
+
+const Cardapio = ({
+  tipo,
+  titulo,
+  descricao,
+  avaliacao,
+  capa,
+  cardapio
+}: Props) => (
   <>
     <CardCadapio>
       <ImgCardapio capa={capa}>
@@ -34,7 +47,7 @@ const Cardapio = ({ tipo, titulo, descricao, avaliacao, capa }: Props) => (
           </li>
         </CadapiorListaTag>
         <TextCardapio>{descricao}</TextCardapio>
-        <Link to="/perfil">Saiba mais</Link>
+        <Link to={`/perfil/${cardapio.id}`}>Saiba mais</Link>
       </Borda>
     </CardCadapio>
   </>
