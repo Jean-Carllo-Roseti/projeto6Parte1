@@ -26,23 +26,15 @@ type Props = Pick<Pratos, 'cardapio'>
 const CardPerfil = ({ cardapio }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
 
-  // Se cardapio for undefined, o componente renderiza um conteúdo alternativo ou retorna null
-  if (!cardapio) {
-    return <div>Carregando informações do cardápio...</div> // Ou qualquer outra mensagem de fallback que preferir
-  }
-
   return (
     <>
       <CardContainer>
         <div>
-          <img
-            src={cardapio?.foto ?? 'pathToDefaultImage'}
-            alt="fotografia de um prato do cardápio"
-          />
+          <img src={cardapio.foto} alt="fotografia de um prato do cardápio" />
         </div>
         <DescriptionPerfil>
-          <h3>{cardapio?.nome ?? 'Nome padrão'}</h3>
-          <p>{cardapio?.descricao ?? 'Descrição padrão'}</p>
+          <h3>{cardapio.nome}</h3>
+          <p>{cardapio.descricao}</p>
         </DescriptionPerfil>
         <div>
           <Botao onClick={() => setModalAberto(true)}>
@@ -56,12 +48,12 @@ const CardPerfil = ({ cardapio }: Props) => {
             <ImagePerfil src={Fechar} alt="imagem da pizza" />
           </div>
           <PerfilDetails>
-            <h3>{cardapio?.nome ?? 'Nome padrão'}</h3>
+            <h3>{cardapio.nome}</h3>
             <DescriptionPerfil>
-              {cardapio?.descricao ?? 'Descrição padrão'}
+              {cardapio.descricao}
               <br />
               <br />
-              {cardapio?.porcao ?? 'Porção padrão'}
+              {cardapio.porcao}
             </DescriptionPerfil>
             <Botao>Adicionar ao carrinho - R$ 70,00</Botao>
           </PerfilDetails>

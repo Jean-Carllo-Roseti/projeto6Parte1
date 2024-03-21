@@ -9,15 +9,15 @@ type Props = {
 const CardapioList = ({ pratos }: Props) => (
   <SectionList>
     <List>
-      {pratos.map((pratos) => (
+      {pratos.map((prato) => (
         <Cardapio
-          key={pratos.id}
-          descricao={pratos.descricao}
-          tipo={pratos.tipo}
-          titulo={pratos.titulo}
-          avaliacao={pratos.avaliacao}
-          capa={pratos.capa}
-          cardapio={{ id: pratos.cardapio.id }}
+          key={prato.id}
+          descricao={prato.descricao}
+          tipo={prato.tipo}
+          titulo={prato.titulo}
+          avaliacao={prato.avaliacao}
+          capa={prato.capa}
+          cardapio={{ id: prato.cardapio ? prato.cardapio.id : 0 }} //duvida sobre esta linha
         />
       ))}
     </List>
