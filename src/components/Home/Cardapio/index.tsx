@@ -12,15 +12,9 @@ import {
 } from './styles'
 
 import Estrela from '../../../assets/images/estrela.png'
-import { Pratos } from '../../../Pages/Home'
+import { Restaurante } from '../../../Pages/Home'
 
-export type CardapioType = Pratos['cardapio']
-
-export type CardapioOnli = Pick<CardapioType, 'id'>
-
-type Props = Omit<Pratos, 'destacado' | 'id' | 'cardapio'> & {
-  cardapio: CardapioOnli
-}
+type Props = Omit<Restaurante, 'destacado' | 'id'>
 
 const Cardapio = ({
   tipo,
@@ -30,6 +24,8 @@ const Cardapio = ({
   capa,
   cardapio
 }: Props) => {
+  const primeiroPratoId = cardapio[0].id
+
   return (
     <>
       <CardCadapio>
@@ -48,7 +44,8 @@ const Cardapio = ({
             </li>
           </CadapiorListaTag>
           <TextCardapio>{descricao}</TextCardapio>
-          <Link to={`/perfil/${cardapio.id}`}>Saiba mais</Link>
+          <Link to={`/perfil/${primeiroPratoId}`}>Saiba mais</Link>{' '}
+          {/*o erro esta aqui o no cardapiolist.index.tsx */}
         </Borda>
       </CardCadapio>
     </>

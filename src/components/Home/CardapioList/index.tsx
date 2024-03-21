@@ -1,23 +1,23 @@
-import { Pratos } from '../../../Pages/Home'
+import { Restaurante } from '../../../Pages/Home'
 import Cardapio from '../Cardapio'
 import { List, SectionList } from './styles'
 
 type Props = {
-  pratos: Pratos[]
+  restaurante: Restaurante[]
 }
 
-const CardapioList = ({ pratos }: Props) => (
+const CardapioList = ({ restaurante }: Props) => (
   <SectionList>
     <List>
-      {pratos.map((prato) => (
+      {restaurante.map((rest) => (
         <Cardapio
-          key={prato.id}
-          descricao={prato.descricao}
-          tipo={prato.tipo}
-          titulo={prato.titulo}
-          avaliacao={prato.avaliacao}
-          capa={prato.capa}
-          cardapio={{ id: prato.cardapio ? prato.cardapio.id : 0 }} //duvida sobre esta linha
+          key={rest.id}
+          descricao={rest.descricao}
+          tipo={rest.tipo}
+          titulo={rest.titulo}
+          avaliacao={rest.avaliacao}
+          capa={rest.capa}
+          cardapio={rest.cardapio}
         />
       ))}
     </List>

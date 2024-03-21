@@ -9,6 +9,11 @@ export const CardContainer = styled.div`
   color: ${cores.trigo};
   background-color: ${cores.salmao};
   padding: 8px;
+
+  img {
+    width: 304px;
+    height: 167px;
+  }
 `
 
 export const DescriptionPerfil = styled.div`

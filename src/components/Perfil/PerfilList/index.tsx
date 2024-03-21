@@ -1,9 +1,9 @@
-import { Pratos } from '../../../Pages/Home'
+import { Prato } from '../../../Pages/Home'
 import CardPerfil from '../CardPerfil'
 import { OpcoesContainer, PerfilList } from './styles'
 
 type Props = {
-  pratos: Pratos[]
+  pratos: Prato[]
 }
 
 const OpcoesPerfil = ({ pratos }: Props) => {
@@ -12,16 +12,16 @@ const OpcoesPerfil = ({ pratos }: Props) => {
       <OpcoesContainer className="container">
         <PerfilList>
           {pratos.map((prato) => (
-            <li key={prato.cardapio.id}>
+            <li key={prato.id}>
               <CardPerfil
                 //obejto unico sendo passado, diferente do anterior
-                cardapio={{
-                  foto: prato.cardapio.foto,
-                  descricao: prato.cardapio.descricao,
-                  nome: prato.cardapio.nome,
-                  porcao: prato.cardapio.porcao,
-                  preco: prato.cardapio.preco,
-                  id: prato.cardapio.id
+                prato={{
+                  foto: prato.foto,
+                  descricao: prato.descricao,
+                  nome: prato.nome,
+                  porcao: prato.porcao,
+                  preco: prato.preco,
+                  id: prato.id
                 }}
               />
             </li>

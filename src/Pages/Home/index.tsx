@@ -4,7 +4,34 @@ import Hero from '../../components/Home/Hero'
 
 import { useEffect, useState } from 'react'
 
-export type Pratos = {
+// export type Pratos = {
+//   id: number
+//   titulo: string
+//   destacado: boolean
+//   tipo: string
+//   avaliacao: number
+//   descricao: string
+//   capa: string
+//   cardapio: [
+//     foto: string,
+//     preco: string,
+//     id: number,
+//     nome: string,
+//     descricao: string,
+//     porcao: string
+//   ]
+// }
+
+export type Prato = {
+  foto: string
+  preco: string
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
+export type Restaurante = {
   id: number
   titulo: string
   destacado: boolean
@@ -12,18 +39,11 @@ export type Pratos = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: {
-    foto: string
-    preco: string
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
+  cardapio: Prato[]
 }
 
 const Home = () => {
-  const [opcoesGeral, setOpecoesGeral] = useState<Pratos[]>([])
+  const [opcoesGeral, setOpecoesGeral] = useState<Restaurante[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
@@ -34,7 +54,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <CardapioList pratos={opcoesGeral} />
+      <CardapioList restaurante={opcoesGeral} />
       <Footer />
     </>
   )

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 
-import { Pratos } from '../../../Pages/Home'
+import { Restaurante } from '../../../Pages/Home'
 
-export const ImgCardapio = styled.div<Pick<Pratos, 'capa'>>`
+export const ImgCardapio = styled.div<Pick<Restaurante, 'capa'>>`
   width: 100%;
   max-width: 472px;
   height: 217px;
