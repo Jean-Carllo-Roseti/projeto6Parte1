@@ -17,7 +17,8 @@ const CardapioList = ({ restaurante }: Props) => (
           titulo={rest.titulo}
           avaliacao={rest.avaliacao}
           capa={rest.capa}
-          cardapio={rest.cardapio}
+          id={rest.id}
+          destacado={rest.destacado}
         />
       ))}
     </List>

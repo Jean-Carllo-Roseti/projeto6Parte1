@@ -13,8 +13,9 @@ import {
 
 import Estrela from '../../../assets/images/estrela.png'
 import { Restaurante } from '../../../Pages/Home'
+import Tag from '../Tag'
 
-type Props = Omit<Restaurante, 'destacado' | 'id'>
+type Props = Omit<Restaurante, 'cardapio'>
 
 const Cardapio = ({
   tipo,
@@ -22,15 +23,19 @@ const Cardapio = ({
   descricao,
   avaliacao,
   capa,
-  cardapio
+  id,
+  destacado
 }: Props) => {
-  const primeiroPratoId = cardapio[0].id
-
   return (
     <>
       <CardCadapio>
         <ImgCardapio capa={capa}>
-          <Etiqueta>{tipo}</Etiqueta>
+          <Etiqueta>
+            <Tag style={destacado ? {} : { backgroundColor: 'transparent' }}>
+              {destacado ? 'Destaque' : ''}
+            </Tag>
+            <Tag>{tipo}</Tag>
+          </Etiqueta>
         </ImgCardapio>
         <Borda>
           <CadapiorListaTag>
@@ -44,8 +49,7 @@ const Cardapio = ({
             </li>
           </CadapiorListaTag>
           <TextCardapio>{descricao}</TextCardapio>
-          <Link to={`/perfil/${primeiroPratoId}`}>Saiba mais</Link>{' '}
-          {/*o erro esta aqui o no cardapiolist.index.tsx */}
+          <Link to={`/perfil/${id}`}>Saiba mais</Link>
         </Borda>
       </CardCadapio>
     </>

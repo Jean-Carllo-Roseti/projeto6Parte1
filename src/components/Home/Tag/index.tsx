@@ -1,11 +1,12 @@
 import { TagContainer } from './styles'
 
 export type Props = {
-  children: string
+  children: React.ReactNode
+  style?: React.CSSProperties
 }
 
-const Tag = ({ children }: Props) => (
-  <TagContainer>
+const Tag = ({ children, style }: Props) => (
+  <TagContainer style={style}>
     <span>{children}</span>
   </TagContainer>
 )

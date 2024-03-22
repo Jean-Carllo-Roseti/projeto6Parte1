@@ -39,7 +39,7 @@ const CardPerfil = ({ prato }: Props) => {
       <Modal className={modalAberto ? 'visible' : ''}>
         <PerfilModal className="container">
           <div>
-            <ImagePerfil src={Fechar} alt="imagem da pizza" />
+            <ImagePerfil src={prato.foto} alt="imagem da pizza" />
           </div>
           <PerfilDetails>
             <h3>{prato.nome}</h3>
