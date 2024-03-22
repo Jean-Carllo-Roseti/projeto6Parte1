@@ -5,7 +5,8 @@ import {
   ImagePerfil,
   Modal,
   PerfilDetails,
-  PerfilModal
+  PerfilModal,
+  BotaoPerfil
 } from './styles'
 
 import Botao from '../ButtonPerfil'
@@ -20,6 +21,14 @@ type Props = {
 const CardPerfil = ({ prato }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
 
+  const limitarDescricao = (descricao: string) => {
+    if (descricao.length > 160) {
+      return descricao.substring(0, 160) + '...'
+    }
+
+    return descricao
+  }
+
   return (
     <>
       <CardContainer>
@@ -28,7 +37,7 @@ const CardPerfil = ({ prato }: Props) => {
         </div>
         <DescriptionPerfil>
           <h3>{prato.nome}</h3>
-          <p>{prato.descricao}</p>
+          <p>{limitarDescricao(prato.descricao)}</p>
         </DescriptionPerfil>
         <div>
           <Botao onClick={() => setModalAberto(true)}>
@@ -49,7 +58,7 @@ const CardPerfil = ({ prato }: Props) => {
               <br />
               {prato.porcao}
             </DescriptionPerfil>
-            <Botao>Adicionar ao carrinho - R$ 70,00</Botao>
+            <BotaoPerfil>Adicionar ao carrinho - R$ {prato.preco}</BotaoPerfil>
           </PerfilDetails>
           <ImageFechar
             onClick={() => setModalAberto(false)}

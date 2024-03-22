@@ -13,6 +13,10 @@ export const PerfilList = styled.ul`
   color: ${cores.salmao};
   font-weight: 900;
   font-size: 18px;
+
+  li:first-child {
+    margin-right: 96px;
+  }
 `
 export const ContainerPerfil = styled.div`
   max-width: 1024px;

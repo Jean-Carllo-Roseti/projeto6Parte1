@@ -26,6 +26,14 @@ const Cardapio = ({
   id,
   destacado
 }: Props) => {
+  const limitarDescricao = (descricao: string) => {
+    if (descricao.length > 196) {
+      return descricao.substring(0, 196) + '...'
+    }
+
+    return descricao
+  }
+
   return (
     <>
       <CardCadapio>
@@ -48,7 +56,7 @@ const Cardapio = ({
               </Nota>
             </li>
           </CadapiorListaTag>
-          <TextCardapio>{descricao}</TextCardapio>
+          <TextCardapio>{limitarDescricao(descricao)}</TextCardapio>
           <Link to={`/perfil/${id}`}>Saiba mais</Link>
         </Borda>
       </CardCadapio>

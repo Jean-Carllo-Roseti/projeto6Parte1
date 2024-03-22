@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '../../../assets/images/logo.png'
 import {
   HeaderContainer,
@@ -14,7 +15,9 @@ const HeaderPerfil = () => (
       <PerfilList>
         <li>Restaurante</li>
         <li>
-          <ImaLogo src={Logo} alt="" />
+          <Link to="/">
+            <ImaLogo src={Logo} alt="" />
+          </Link>
         </li>
         <li>0 produto(s) no carrinho</li>
       </PerfilList>

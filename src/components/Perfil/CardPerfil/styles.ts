@@ -95,3 +95,14 @@ export const ImagePerfil = styled.img`
   height: 280px;
   margin: 32px 0 32px 32px;
 `
+export const BotaoPerfil = styled.button`
+  color: ${cores.salmao};
+  background-color: ${cores.trigo};
+  border: none;
+  width: auto%;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+`
