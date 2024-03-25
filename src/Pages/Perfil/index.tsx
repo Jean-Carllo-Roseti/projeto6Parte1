@@ -3,6 +3,7 @@ import Footer from '../../components/Home/Footer'
 import HeaderPerfil from '../../components/Perfil/HeaderPerfil'
 import OpcoesPerfil from '../../components/Perfil/PerfilList'
 import { useEffect, useState } from 'react'
+import Carrinho from '../../components/Perfil/Carrinho'
 
 const Perfil = () => {
   const { id } = useParams() // Obtendo o id do URL
@@ -22,6 +23,7 @@ const Perfil = () => {
     <>
       <HeaderPerfil />
       <OpcoesPerfil pratos={pratos} />
+      <Carrinho />
       <Footer />
     </>
   )

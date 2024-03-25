@@ -9,6 +9,10 @@ import {
   Paragrafo
 } from './styles'
 
+import { Restaurante } from '../../../Pages/Home'
+
+export type Props = Pick<Restaurante, 'tipo' | 'titulo'> // quando eu substituo o hardcode acontece um efeito cascata indesejado.
+
 const HeaderPerfil = () => (
   <HeaderContainer>
     <ContainerPerfil>
