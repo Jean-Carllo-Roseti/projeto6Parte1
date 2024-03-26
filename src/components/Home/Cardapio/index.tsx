@@ -57,7 +57,7 @@ const Cardapio = ({
             </li>
           </CadapiorListaTag>
           <TextCardapio>{limitarDescricao(descricao)}</TextCardapio>
-          <Link to={`/perfil/${id}`}>Saiba mais</Link>
+          <Link to={`/${id}`}>Saiba mais</Link>
         </Borda>
       </CardCadapio>
     </>
