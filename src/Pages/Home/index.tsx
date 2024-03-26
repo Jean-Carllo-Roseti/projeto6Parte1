@@ -42,22 +42,29 @@ export type Restaurante = {
   cardapio: Prato[]
 }
 
+import { useGetFeatureRestaurantesQuery } from '../../services/api'
+
 const Home = () => {
-  const [opcoesGeral, setOpecoesGeral] = useState<Restaurante[]>([])
+  // const [opcoesGeral, setOpecoesGeral] = useState<Restaurante[]>([])
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setOpecoesGeral(res))
-  }, [])
+  // useEffect(() => {
+  //   fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+  //     .then((res) => res.json())
+  //     .then((res) => setOpecoesGeral(res))
+  // }, [])
 
-  return (
-    <>
-      <Hero />
-      <CardapioList restaurante={opcoesGeral} />
-      <Footer />
-    </>
-  )
+  const { data: home } = useGetFeatureRestaurantesQuery()
+
+  if (home) {
+    return (
+      <>
+        <Hero />
+        <CardapioList restaurante={home} />
+        <Footer />
+      </>
+    )
+  }
+  return <h3>Carregando...</h3>
 }
 
 export default Home

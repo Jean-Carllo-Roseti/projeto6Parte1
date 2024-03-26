@@ -8,7 +8,7 @@ import Carrinho from '../../components/Perfil/Carrinho'
 const Perfil = () => {
   const { id } = useParams() // Obtendo o id do URL
   const [pratos, setPratos] = useState([]) // Estado para armazenar os dados do restaurante
-
+  //cuidado com o endpoint este aqui tem de ser com cautela.
   useEffect(() => {
     // Busca os dados do restaurante com o id especificado
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
