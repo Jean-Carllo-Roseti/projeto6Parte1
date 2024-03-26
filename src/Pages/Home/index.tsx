@@ -2,8 +2,6 @@ import CardapioList from '../../components/Home/CardapioList'
 import Footer from '../../components/Home/Footer'
 import Hero from '../../components/Home/Hero'
 
-import { useEffect, useState } from 'react'
-
 // export type Pratos = {
 //   id: number
 //   titulo: string
