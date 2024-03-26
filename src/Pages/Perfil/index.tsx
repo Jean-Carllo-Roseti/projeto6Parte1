@@ -23,7 +23,7 @@ const Perfil = () => {
     <>
       <HeaderPerfil />
       <OpcoesPerfil pratos={pratos} />
-      <Carrinho />
+      {/* <Carrinho /> */}
       <Footer />
     </>
   )
