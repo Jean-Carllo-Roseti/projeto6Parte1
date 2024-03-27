@@ -45,7 +45,9 @@ const Carrinho = () => {
               <ImgPrato src={item.foto} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
-                <span>{item.preco}</span>
+                <span>
+                  {parseFloat(item.preco).toFixed(2).replace('.', ',')}
+                </span>
                 <ImgFechar
                   onClick={() => removeItem(item.id)}
                   src={Lixeira}
