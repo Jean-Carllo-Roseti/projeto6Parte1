@@ -78,7 +78,8 @@ const CardPerfil = ({ prato }: Props) => {
                 setModalAberto(false)
               }}
             >
-              Adicionar ao carrinho - R$ {prato.preco}
+              Adicionar ao carrinho - R${' '}
+              {parseFloat(prato.preco).toFixed(2).replace('.', ',')}
             </BotaoPerfil>
           </PerfilDetails>
           <ImageFechar
