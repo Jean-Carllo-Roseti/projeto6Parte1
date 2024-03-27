@@ -47,6 +47,7 @@ export const ImgFechar = styled.img`
   position: absolute;
   bottom: 8px;
   right: 8px;
+  cursor: pointer;
 `
 export const Valor = styled.ul`
   display: flex;

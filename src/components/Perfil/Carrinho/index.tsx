@@ -14,7 +14,7 @@ import {
 import Lixeira from '../../../assets/images/Lixeira.png'
 
 import { ButtonPerfil } from '../ButtonPerfil/styled'
-import { close } from '../../../store/reducer/cart'
+import { close, remove } from '../../../store/reducer/cart'
 
 const Carrinho = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -24,10 +24,15 @@ const Carrinho = () => {
     dispatch(close())
   }
 
-  const ValorTotal = () => {
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
+  }
+
+  const valorTotal = () => {
     return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco)
-    })
+      const precoNumerico = parseFloat(valorAtual.preco)
+      return acumulador + precoNumerico
+    }, 0)
   }
 
   return (
@@ -42,6 +47,7 @@ const Carrinho = () => {
                 <h3>{item.nome}</h3>
                 <span>{item.preco}</span>
                 <ImgFechar
+                  onClick={() => removeItem(item.id)}
                   src={Lixeira}
                   alt="imagem de um X para fechar a aba"
                 />
@@ -50,8 +56,8 @@ const Carrinho = () => {
           ))}
         </ul>
         <Valor>
-          <li>valor total</li>
-          <li>R$ {(182, 70)}</li>
+          <li>Valor total</li>
+          <li>R$ {valorTotal().toFixed(2).replace('.', ',')}</li>
         </Valor>
         <ButtonPerfil>Continuar a entrega</ButtonPerfil>
       </SideBar>
