@@ -17,6 +17,10 @@ export const PerfilList = styled.ul`
   li:first-child {
     margin-right: 96px;
   }
+
+  li:last-child {
+    cursor: pointer;
+  }
 `
 export const ContainerPerfil = styled.div`
   max-width: 1024px;

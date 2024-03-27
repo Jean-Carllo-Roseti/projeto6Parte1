@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+
+import { open, add } from '../../../store/reducer/cart'
+
 import {
   CardContainer,
   DescriptionPerfil,
@@ -9,10 +14,9 @@ import {
   BotaoPerfil
 } from './styles'
 
-import Botao from '../ButtonPerfil'
-import { useState } from 'react'
 import { Prato } from '../../../Pages/Home'
 
+import Botao from '../ButtonPerfil'
 import Fechar from '../../../assets/images/fechar.png'
 
 type Props = {
@@ -20,6 +24,15 @@ type Props = {
 }
 const CardPerfil = ({ prato }: Props) => {
   const [modalAberto, setModalAberto] = useState(false)
+  const dispatch = useDispatch()
+
+  const OpenCart = () => {
+    dispatch(open())
+  }
+
+  const AddToCart = () => {
+    dispatch(add(prato))
+  }
 
   const limitarDescricao = (descricao: string) => {
     if (descricao.length > 160) {
@@ -58,7 +71,15 @@ const CardPerfil = ({ prato }: Props) => {
               <br />
               {prato.porcao}
             </DescriptionPerfil>
-            <BotaoPerfil>Adicionar ao carrinho - R$ {prato.preco}</BotaoPerfil>
+            <BotaoPerfil
+              onClick={() => {
+                OpenCart()
+                AddToCart()
+                setModalAberto(false)
+              }}
+            >
+              Adicionar ao carrinho - R$ {prato.preco}
+            </BotaoPerfil>
           </PerfilDetails>
           <ImageFechar
             onClick={() => setModalAberto(false)}
