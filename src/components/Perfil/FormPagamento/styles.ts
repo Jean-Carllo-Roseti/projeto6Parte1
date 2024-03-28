@@ -13,7 +13,7 @@ export const Formulario = styled.form`
     padding: 8px;
     margin-bottom: 8px;
     font-size: 14px;
-    color: ${cores.trigo};
+    color: #000;
     font-weight: 700;
   }
 
