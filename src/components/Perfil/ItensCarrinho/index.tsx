@@ -6,7 +6,11 @@ import { Cards, ImgFechar, ImgPrato, Valor } from '../Carrinho/styles'
 import Lixeira from '../../../assets/images/Lixeira.png'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 
-const ItensCarrinho = () => {
+interface ItensCarrinhoProps {
+  avancaParaEntrega: () => void
+}
+
+const ItensCarrinho = ({ avancaParaEntrega }: ItensCarrinhoProps) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
@@ -43,7 +47,9 @@ const ItensCarrinho = () => {
         <li>Valor total</li>
         <li>R$ {valorTotal().toFixed(2).replace('.', ',')}</li>
       </Valor>
-      <ButtonPerfil>Continuar a entrega</ButtonPerfil>
+      <ButtonPerfil onClick={avancaParaEntrega}>
+        Continuar a entrega
+      </ButtonPerfil>
     </>
   )
 }

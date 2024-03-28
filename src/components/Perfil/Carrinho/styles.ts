@@ -35,6 +35,9 @@ export const SideBar = styled.aside`
     display: flex;
     position: relative;
   }
+  input {
+    color: #000;
+  }
 `
 export const ImgPrato = styled.img`
   width: 80px;
