@@ -1,51 +1,46 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../../store'
-
-import { remove } from '../../../store/reducer/cart'
-import { Cards, ImgFechar, ImgPrato, Valor } from '../Carrinho/styles'
-import Lixeira from '../../../assets/images/Lixeira.png'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
+import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
 
-const FormEntrega = () => {
-  const { items } = useSelector((state: RootReducer) => state.cart)
-  const dispatch = useDispatch()
-
-  const removeItem = (id: number) => {
-    dispatch(remove(id))
-  }
-
-  const valorTotal = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      const precoNumerico = parseFloat(valorAtual.preco)
-      return acumulador + precoNumerico
-    }, 0)
-  }
-
-  return (
-    <>
-      <ul>
-        {items.map((item) => (
-          <Cards key={item.id}>
-            <ImgPrato src={item.foto} alt={item.nome} />
-            <div>
-              <h3>{item.nome}</h3>
-              <span>{parseFloat(item.preco).toFixed(2).replace('.', ',')}</span>
-              <ImgFechar
-                onClick={() => removeItem(item.id)}
-                src={Lixeira}
-                alt="imagem de um X para fechar a aba"
-              />
-            </div>
-          </Cards>
-        ))}
-      </ul>
-      <Valor>
-        <li>Valor total</li>
-        <li>R$ {valorTotal().toFixed(2).replace('.', ',')}</li>
-      </Valor>
-      <ButtonPerfil>Continuar a entrega</ButtonPerfil>
-    </>
-  )
+interface FormEntregaProps {
+  avancaParaPagamento: () => void
+  avancaParaCarrinho: () => void // Supondo que seja uma função sem parâmetros e retorno void
 }
+
+const FormEntrega = ({
+  avancaParaPagamento,
+  avancaParaCarrinho
+}: FormEntregaProps) => (
+  <div>
+    <Subtitulo>Entrega</Subtitulo>
+    <Formulario>
+      <label htmlFor="nome">Quem ira receber</label>
+      <input type="text" name="nome" />
+      <label htmlFor="endereço">Endereço</label>
+      <input type="text" name="endereço" />
+      <label htmlFor="cidade">Cidade</label>
+      <input type="text" name="cidade" />
+      <Ajuste>
+        <div>
+          <label htmlFor="cep">CEP</label>
+          <input type="number" name="cep" />
+        </div>
+        <div>
+          <label htmlFor="numero">Numero</label>
+          <input type="number" name="numero" />
+        </div>
+      </Ajuste>
+      <label htmlFor="complemento">Complemento (opcional)</label>
+      <input type="text" name="complemento" />
+      <Buttondiv>
+        <ButtonPerfil onClick={avancaParaPagamento}>
+          Continuar com o pagamento
+        </ButtonPerfil>
+        <ButtonPerfil onClick={avancaParaCarrinho}>
+          voltar para o carrinho
+        </ButtonPerfil>
+      </Buttondiv>
+    </Formulario>
+  </div>
+)
 
 export default FormEntrega
