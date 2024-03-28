@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { combineReducers } from '@reduxjs/toolkit'
 import { Prato } from '../../Pages/Home'
 
 type CartState = {
