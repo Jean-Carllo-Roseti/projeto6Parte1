@@ -2,20 +2,23 @@ import { useFormik } from 'formik'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../../services/api'
 
 interface FormEntregaProps {
   avancaParaPagamento: () => void
-  avancaParaCarrinho: () => void // Supondo que seja uma função sem parâmetros e retorno void
+  avancaParaCarrinho: () => void
 }
 
 const FormEntrega = ({
   avancaParaPagamento,
   avancaParaCarrinho
 }: FormEntregaProps) => {
+  const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
+
   const form = useFormik({
     initialValues: {
       nome: '',
-      endereco: '', // Usando 'endereco' em vez de 'endereço'
+      endereco: '',
       cidade: '',
       cep: '',
       numero: '',
@@ -34,7 +37,18 @@ const FormEntrega = ({
       complemento: Yup.string()
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        delivery: {
+          receiver: values.nome,
+          address: {
+            description: values.endereco,
+            city: values.cidade,
+            zipCode: values.cep,
+            number: Number(values.numero),
+            complement: values.complemento
+          }
+        }
+      })
     }
   })
 

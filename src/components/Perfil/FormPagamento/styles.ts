@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { cores } from '../../../styles'
 
-export const Formulario = styled.form`
+export const Formulario = styled.div`
   color: ${cores.trigo};
   font-weight: 700;
 

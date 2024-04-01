@@ -1,7 +1,9 @@
 import { useFormik } from 'formik'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
+import { useValorTotal } from '../../../Uteis'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../../services/api'
 
 interface FormPagamentoProps {
   avancaParaEntrega: () => void
@@ -12,6 +14,8 @@ const FormPagamento = ({
   avancaParaEntrega,
   avancaParaRecibo
 }: FormPagamentoProps) => {
+  const [purchase, { isLoading, isError, data }] = usePurchaseMutation()
+
   const form = useFormik({
     initialValues: {
       nome: '',
@@ -24,8 +28,8 @@ const FormPagamento = ({
       nome: Yup.string().required('O campo é obrigatório'),
       numero: Yup.number().required('O campo é obrigatório'),
       cvv: Yup.number()
-        .min(3, 'o campo requer 3 caraters')
-        .max(3, 'campo requer 3 caracters')
+        // .min(3, 'o campo requer 3 caraters')
+        // .max(3, 'campo requer 3 caracters')
         .required('O campo é obrigatório'),
       mes: Yup.number()
         .min(2, 'o campo requer dois caracters')
@@ -37,9 +41,24 @@ const FormPagamento = ({
         .required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        payment: {
+          card: {
+            name: values.nome,
+            number: values.numero,
+            code: Number(values.cvv),
+            expires: {
+              month: Number(values.mes),
+              year: Number(values.ano)
+            }
+          }
+        },
+        product: [{ id: 1, price: 0 }]
+      })
     }
   })
+
+  const Total = useValorTotal()
 
   const getErrorMensage = (fildName: string, message?: string) => {
     const estaAlterado = fildName in form.touched
@@ -51,7 +70,7 @@ const FormPagamento = ({
 
   return (
     <form onSubmit={form.handleSubmit}>
-      <Subtitulo>Pagamento - Valor a pagar R$ 190, 90</Subtitulo>
+      <Subtitulo>Pagamento - Valor a pagar R$ {Total}</Subtitulo>
       <Formulario>
         <label htmlFor="nome">Nome do cartão</label>
         <input

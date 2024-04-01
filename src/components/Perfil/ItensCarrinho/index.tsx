@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
+import { useValorTotal } from '../../../Uteis'
 
 import { remove } from '../../../store/reducer/cart'
 import { Cards, ImgFechar, ImgPrato, Valor } from '../Carrinho/styles'
@@ -11,19 +12,14 @@ interface ItensCarrinhoProps {
 }
 
 const ItensCarrinho = ({ avancaParaEntrega }: ItensCarrinhoProps) => {
-  const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
 
-  const valorTotal = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      const precoNumerico = parseFloat(valorAtual.preco)
-      return acumulador + precoNumerico
-    }, 0)
-  }
+  const Total = useValorTotal()
 
   return (
     <>
@@ -45,7 +41,7 @@ const ItensCarrinho = ({ avancaParaEntrega }: ItensCarrinhoProps) => {
       </ul>
       <Valor>
         <li>Valor total</li>
-        <li>R$ {valorTotal().toFixed(2).replace('.', ',')}</li>
+        <li>R$ {Total}</li>
       </Valor>
       <ButtonPerfil onClick={avancaParaEntrega}>
         Continuar a entrega
