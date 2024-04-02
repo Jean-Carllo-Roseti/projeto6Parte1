@@ -14,7 +14,7 @@ const Perfil = () => {
   }
   return (
     <>
-      <HeaderPerfil />
+      <HeaderPerfil restaurante={restaurante} />
       <OpcoesPerfil pratos={restaurante.cardapio} />
       <Carrinho />
       <Footer />

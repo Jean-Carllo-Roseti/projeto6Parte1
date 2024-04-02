@@ -1,22 +1,20 @@
 import { Link } from 'react-router-dom'
-import Logo from '../../../assets/images/logo.png'
-import {
-  HeaderContainer,
-  PerfilList,
-  ContainerPerfil,
-  BannerPerfil,
-  ImaLogo,
-  Paragrafo
-} from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { open } from '../../../store/reducer/cart'
 import { RootReducer } from '../../../store'
 
-// import { Restaurante } from '../../../Pages/Home'
+import { HeaderContainer, PerfilList, ContainerPerfil, ImaLogo } from './styles'
+import BannerPerfil from '../../../BannerPerfil'
 
-// export type Props = Pick<Restaurante, 'tipo' | 'titulo'> // quando eu substituo o hardcode acontece um efeito cascata indesejado.
+import Logo from '../../../assets/images/logo.png'
 
-const HeaderPerfil = () => {
+import { open } from '../../../store/reducer/cart'
+import { Restaurante } from '../../../Pages/Home'
+
+type Props = {
+  restaurante: Restaurante
+}
+
+const HeaderPerfil = ({ restaurante }: Props) => {
   const dispatch = useDispatch()
 
   const OpenCart = () => {
@@ -38,14 +36,12 @@ const HeaderPerfil = () => {
           <li onClick={OpenCart}>{items.length} produto(s) no carrinho</li>
         </PerfilList>
       </ContainerPerfil>
-      <BannerPerfil>
-        <div>
-          <div className="container">
-            <p>italiana</p>
-            <Paragrafo>La Doce Vita Trattoia</Paragrafo>
-          </div>
-        </div>
-      </BannerPerfil>
+      <BannerPerfil
+        key={restaurante.id}
+        capa={restaurante.capa}
+        tipo={restaurante.tipo}
+        titulo={restaurante.titulo}
+      />
     </HeaderContainer>
   )
 }
