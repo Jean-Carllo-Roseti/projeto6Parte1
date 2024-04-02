@@ -23,29 +23,37 @@ const ItensCarrinho = ({ avancaParaEntrega }: ItensCarrinhoProps) => {
 
   return (
     <>
-      <ul>
-        {items.map((item) => (
-          <Cards key={item.id}>
-            <ImgPrato src={item.foto} alt={item.nome} />
-            <div>
-              <h3>{item.nome}</h3>
-              <span>{parseFloat(item.preco).toFixed(2).replace('.', ',')}</span>
-              <ImgFechar
-                onClick={() => removeItem(item.id)}
-                src={Lixeira}
-                alt="imagem de um X para fechar a aba"
-              />
-            </div>
-          </Cards>
-        ))}
-      </ul>
-      <Valor>
-        <li>Valor total</li>
-        <li>R$ {Total}</li>
-      </Valor>
-      <ButtonPerfil onClick={avancaParaEntrega}>
-        Continuar a entrega
-      </ButtonPerfil>
+      {items.length === 0 ? (
+        <p>O carrinho ainda não possui nenhum prato.</p>
+      ) : (
+        <>
+          <ul>
+            {items.map((item) => (
+              <Cards key={item.id}>
+                <ImgPrato src={item.foto} alt={item.nome} />
+                <div>
+                  <h3>{item.nome}</h3>
+                  <span>
+                    {parseFloat(item.preco).toFixed(2).replace('.', ',')}
+                  </span>
+                  <ImgFechar
+                    onClick={() => removeItem(item.id)}
+                    src={Lixeira}
+                    alt="imagem de um X para fechar a aba"
+                  />
+                </div>
+              </Cards>
+            ))}
+          </ul>
+          <Valor>
+            <li>Valor total</li>
+            <li>R$ {Total}</li>
+          </Valor>
+          <ButtonPerfil onClick={avancaParaEntrega}>
+            Continuar a entrega
+          </ButtonPerfil>
+        </>
+      )}
     </>
   )
 }

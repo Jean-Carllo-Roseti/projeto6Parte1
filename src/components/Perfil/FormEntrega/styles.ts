@@ -15,6 +15,10 @@ export const Formulario = styled.div`
     font-size: 14px;
     color: ${cores.trigo};
     font-weight: 700;
+
+    &.error {
+      border: 2px solid #000;
+    }
   }
 
   label {

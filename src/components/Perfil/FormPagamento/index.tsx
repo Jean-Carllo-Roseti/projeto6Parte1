@@ -89,7 +89,7 @@ const FormPagamento = ({
           onChange={form.handleChange}
           onBlur={form.handleBlur}
         />
-        <small>{getErrorMensage('nome', form.errors.nome)}</small>
+
         <Ajuste>
           <div>
             <label className="numberw" htmlFor="numero">
@@ -103,7 +103,6 @@ const FormPagamento = ({
               name="numero"
               value={form.values.numero}
             />
-            <small>{getErrorMensage('numero', form.errors.numero)}</small>
           </div>
           <div>
             <label htmlFor="cvv">CVV</label>
@@ -115,7 +114,6 @@ const FormPagamento = ({
               name="cvv"
               value={form.values.cvv}
             />
-            <small>{getErrorMensage('cvv', form.errors.cvv)}</small>
           </div>
         </Ajuste>
         <Ajuste>
@@ -129,7 +127,6 @@ const FormPagamento = ({
               name="mes"
               value={form.values.mes}
             />
-            <small>{getErrorMensage('mes', form.errors.mes)}</small>
           </div>
           <div>
             <label htmlFor="ano">ano de vencimento</label>
@@ -141,7 +138,6 @@ const FormPagamento = ({
               name="ano"
               value={form.values.ano}
             />
-            <small>{getErrorMensage('ano', form.errors.ano)}</small>
           </div>
         </Ajuste>
         <Buttondiv>

@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
+import { usePurchaseMutation } from '../../../services/api'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
-import * as Yup from 'yup'
-import { usePurchaseMutation } from '../../../services/api'
-import { useEffect } from 'react'
+import InputMask from 'react-input-mask'
 
 interface FormEntregaProps {
   avancaParaPagamento: () => void
@@ -29,8 +31,12 @@ const FormEntrega = ({
       nome: Yup.string()
         .min(4, 'O nome precisa pelo menos ter 4 caracteres')
         .required('O campo é obrigatório'),
-      endereco: Yup.string().required('O campo é obrigatório'),
-      cidade: Yup.string().required('O campo é obrigatório'),
+      endereco: Yup.string()
+        .min(7, 'O nome precisa pelo menos ter 7 caracteres')
+        .required('O campo é obrigatório'),
+      cidade: Yup.string()
+        .min(3, 'O nome precisa pelo menos ter 3 caracteres')
+        .required('O campo é obrigatório'),
       cep: Yup.number()
         .min(8, 'o cep deve conter todos os 8 carateres')
         .required('O campo é obrigatório'),
@@ -60,12 +66,12 @@ const FormEntrega = ({
     }
   }, [isLoading, data, isError, avancaParaPagamento])
 
-  const getErrorMensage = (fildName: string, message?: string) => {
+  const checkInputError = (fildName: string) => {
     const estaAlterado = fildName in form.touched
     const estaInvalido = fildName in form.errors
+    const hasError = estaAlterado && estaInvalido
 
-    if (estaAlterado && estaInvalido) return message
-    return ''
+    return hasError
   }
 
   return (
@@ -80,8 +86,9 @@ const FormEntrega = ({
           value={form.values.nome}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
+          className={checkInputError('numero') ? 'error' : ''}
         />
-        <small>{getErrorMensage('nome', form.errors.nome)}</small>
+
         <label htmlFor="endereco">Endereço</label>
         <input
           type="text"
@@ -90,8 +97,9 @@ const FormEntrega = ({
           value={form.values.endereco}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
+          className={checkInputError('numero') ? 'error' : ''}
         />
-        <small>{getErrorMensage('endereco', form.errors.endereco)}</small>
+
         <label htmlFor="cidade">Cidade</label>
         <input
           type="text"
@@ -100,20 +108,22 @@ const FormEntrega = ({
           value={form.values.cidade}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
+          className={checkInputError('numero') ? 'error' : ''}
         />
-        <small>{getErrorMensage('cidade', form.errors.cidade)}</small>
+
         <Ajuste>
           <div>
             <label htmlFor="cep">CEP</label>
-            <input
+            <InputMask
               type="text"
               id="cep"
               name="cep"
               value={form.values.cep}
               onChange={form.handleChange}
               onBlur={form.handleBlur}
+              mask="999.999.999-99"
+              className={checkInputError('numero') ? 'error' : ''}
             />
-            <small>{getErrorMensage('cep', form.errors.cep)}</small>
           </div>
           <div>
             <label htmlFor="numero">Numero</label>
@@ -125,7 +135,6 @@ const FormEntrega = ({
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
-            <small>{getErrorMensage('numero', form.errors.numero)}</small>
           </div>
         </Ajuste>
         <label htmlFor="complemento">Complemento (opcional)</label>
@@ -136,8 +145,9 @@ const FormEntrega = ({
           value={form.values.complemento}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
+          className={checkInputError('numero') ? 'error' : ''}
         />
-        <small>{getErrorMensage('complemento', form.errors.complemento)}</small>
+
         <Buttondiv>
           <ButtonPerfil type="button" onClick={avancaParaPagamento}>
             Continuar com o pagamento

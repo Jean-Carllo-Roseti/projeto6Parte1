@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
 
 import { HeaderContainer, PerfilList, ContainerPerfil, ImaLogo } from './styles'
-import BannerPerfil from '../../../BannerPerfil'
+import BannerPerfil from '../BannerPerfil'
 
 import Logo from '../../../assets/images/logo.png'
 
