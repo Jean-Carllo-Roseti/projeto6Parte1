@@ -4,6 +4,7 @@ import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
 import { useValorTotal } from '../../../Uteis'
 import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../../services/api'
+import { useEffect } from 'react'
 
 interface FormPagamentoProps {
   avancaParaEntrega: () => void
@@ -32,12 +33,12 @@ const FormPagamento = ({
         // .max(3, 'campo requer 3 caracters')
         .required('O campo é obrigatório'),
       mes: Yup.number()
-        .min(2, 'o campo requer dois caracters')
-        .max(2, 'o campo requer 2 caracters')
+        // .min(2, 'o campo requer dois caracters')
+        // .max(2, 'o campo requer 2 caracters')
         .required('O campo é obrigatório'),
       ano: Yup.number()
-        .min(4, ' o campo requer 4 caracters')
-        .max(4, 'o campo requer 4 caracters')
+        // .min(4, ' o campo requer 4 caracters')
+        // .max(4, 'o campo requer 4 caracters')
         .required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
@@ -46,19 +47,26 @@ const FormPagamento = ({
           card: {
             name: values.nome,
             number: values.numero,
-            code: Number(values.cvv),
+            code: 123,
+            // code: Number(values.cvv),
             expires: {
-              month: Number(values.mes),
-              year: Number(values.ano)
+              month: 12,
+              year: 1234
             }
           }
         },
-        product: [{ id: 1, price: 0 }]
+        products: [{ id: 1, price: 0 }]
       })
     }
   })
 
   const Total = useValorTotal()
+
+  useEffect(() => {
+    if (!isLoading && data && !isError) {
+      avancaParaRecibo()
+    }
+  }, [isLoading, data, isError, avancaParaRecibo])
 
   const getErrorMensage = (fildName: string, message?: string) => {
     const estaAlterado = fildName in form.touched
@@ -137,10 +145,8 @@ const FormPagamento = ({
           </div>
         </Ajuste>
         <Buttondiv>
-          <ButtonPerfil onClick={avancaParaRecibo}>
-            Finalizar pagamento
-          </ButtonPerfil>
-          <ButtonPerfil onClick={avancaParaEntrega}>
+          <ButtonPerfil type="submit">Finalizar pagamento</ButtonPerfil>
+          <ButtonPerfil type="button" onClick={avancaParaEntrega}>
             voltar para edição de endereço
           </ButtonPerfil>
         </Buttondiv>

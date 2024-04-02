@@ -3,6 +3,7 @@ import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { Ajuste, Buttondiv, Formulario, Subtitulo } from './styles'
 import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../../services/api'
+import { useEffect } from 'react'
 
 interface FormEntregaProps {
   avancaParaPagamento: () => void
@@ -44,13 +45,20 @@ const FormEntrega = ({
             description: values.endereco,
             city: values.cidade,
             zipCode: values.cep,
-            number: Number(values.numero),
+            number: 12,
             complement: values.complemento
           }
         }
       })
     }
   })
+
+  useEffect(() => {
+    if (!isLoading && data && !isError) {
+      // Só avança para o recibo após a confirmação de sucesso da requisição
+      avancaParaPagamento()
+    }
+  }, [isLoading, data, isError, avancaParaPagamento])
 
   const getErrorMensage = (fildName: string, message?: string) => {
     const estaAlterado = fildName in form.touched
@@ -98,7 +106,7 @@ const FormEntrega = ({
           <div>
             <label htmlFor="cep">CEP</label>
             <input
-              type="number"
+              type="text"
               id="cep"
               name="cep"
               value={form.values.cep}
@@ -131,10 +139,10 @@ const FormEntrega = ({
         />
         <small>{getErrorMensage('complemento', form.errors.complemento)}</small>
         <Buttondiv>
-          <ButtonPerfil onClick={avancaParaPagamento}>
+          <ButtonPerfil type="button" onClick={avancaParaPagamento}>
             Continuar com o pagamento
           </ButtonPerfil>
-          <ButtonPerfil onClick={avancaParaCarrinho}>
+          <ButtonPerfil type="button" onClick={avancaParaCarrinho}>
             voltar para o carrinho
           </ButtonPerfil>
         </Buttondiv>

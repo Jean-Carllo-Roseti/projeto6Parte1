@@ -7,14 +7,14 @@ type Product = {
 }
 
 export type PurchasePayload = {
-  product?: Product[]
+  products?: Product[]
   delivery?: {
     receiver: string
     address: {
       description: string
       city: string
       zipCode: string
-      number: number
+      number: 12
       complement: string
     }
   }
@@ -22,10 +22,10 @@ export type PurchasePayload = {
     card: {
       name: string
       number: string
-      code: number
+      code: 123
       expires: {
-        month: number
-        year: number
+        month: 12
+        year: 1234
       }
     }
   }

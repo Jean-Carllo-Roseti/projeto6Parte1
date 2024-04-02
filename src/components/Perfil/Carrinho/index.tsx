@@ -88,14 +88,3 @@ const SideComponent = () => {
 }
 
 export default SideComponent
-
-// return (
-//   <CartContainer className={isOpen ? 'is-open' : ''}>
-//     <Overlay onClick={CloseCart} />
-//     <SideBar>
-//       <Carrinho
-//         avancaParaEntrega={() => setEstadoAtual(AsideStates.ENTREGA)}
-//       />
-//     </SideBar>
-//   </CartContainer>
-// )
