@@ -28,18 +28,9 @@ const FormPagamento = ({
     validationSchema: Yup.object({
       nome: Yup.string().required('O campo é obrigatório'),
       numero: Yup.number().required('O campo é obrigatório'),
-      cvv: Yup.number()
-        // .min(3, 'o campo requer 3 caraters')
-        // .max(3, 'campo requer 3 caracters')
-        .required('O campo é obrigatório'),
-      mes: Yup.number()
-        // .min(2, 'o campo requer dois caracters')
-        // .max(2, 'o campo requer 2 caracters')
-        .required('O campo é obrigatório'),
-      ano: Yup.number()
-        // .min(4, ' o campo requer 4 caracters')
-        // .max(4, 'o campo requer 4 caracters')
-        .required('O campo é obrigatório')
+      cvv: Yup.number().required('O campo é obrigatório'),
+      mes: Yup.number().required('O campo é obrigatório'),
+      ano: Yup.number().required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
       purchase({
@@ -68,12 +59,12 @@ const FormPagamento = ({
     }
   }, [isLoading, data, isError, avancaParaRecibo])
 
-  const getErrorMensage = (fildName: string, message?: string) => {
+  const checkInputError = (fildName: string) => {
     const estaAlterado = fildName in form.touched
     const estaInvalido = fildName in form.errors
+    const hasError = estaAlterado && estaInvalido
 
-    if (estaAlterado && estaInvalido) return message
-    return ''
+    return hasError
   }
 
   return (
@@ -88,6 +79,7 @@ const FormPagamento = ({
           value={form.values.nome}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
+          className={checkInputError('nome') ? 'error' : ''}
         />
 
         <Ajuste>
@@ -102,6 +94,7 @@ const FormPagamento = ({
               onBlur={form.handleBlur}
               name="numero"
               value={form.values.numero}
+              className={checkInputError('numero') ? 'error' : ''}
             />
           </div>
           <div>
@@ -113,6 +106,7 @@ const FormPagamento = ({
               onBlur={form.handleBlur}
               name="cvv"
               value={form.values.cvv}
+              className={checkInputError('cvv') ? 'error' : ''}
             />
           </div>
         </Ajuste>
@@ -126,6 +120,7 @@ const FormPagamento = ({
               onBlur={form.handleBlur}
               name="mes"
               value={form.values.mes}
+              className={checkInputError('mes') ? 'error' : ''}
             />
           </div>
           <div>
@@ -137,6 +132,7 @@ const FormPagamento = ({
               onBlur={form.handleBlur}
               name="ano"
               value={form.values.ano}
+              className={checkInputError('ano') ? 'error' : ''}
             />
           </div>
         </Ajuste>
