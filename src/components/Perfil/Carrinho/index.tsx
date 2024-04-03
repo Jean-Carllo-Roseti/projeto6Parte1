@@ -4,17 +4,15 @@ import { useState } from 'react'
 
 import { close } from '../../../store/reducer/cart'
 
-import FormEntrega from '../FormEntrega'
-import FormPagamento from '../FormPagamento'
 import Recibo from '../Recibo'
 
 import { CartContainer, Overlay, SideBar } from './styles'
 import ItensCarrinho from '../ItensCarrinho'
+import Formulario from '../Formulario'
 
 const AsideStates = {
   CARRINHO: 'CARRINHO',
-  ENTREGA: 'ENTREGA',
-  PAGAMENTO: 'PAGAMENTO',
+  FORMULARIO: 'FORMULARIO',
   RECIBO: 'RECIBO'
 }
 
@@ -35,31 +33,19 @@ const SideComponent = () => {
           <Overlay onClick={CloseCart} />
           <SideBar>
             <ItensCarrinho
-              avancaParaEntrega={() => setEstadoAtual(AsideStates.ENTREGA)}
+              avancaParaEntrega={() => setEstadoAtual(AsideStates.FORMULARIO)}
             />
           </SideBar>
         </CartContainer>
       )
-    case AsideStates.ENTREGA:
+    case AsideStates.FORMULARIO:
       return (
         <CartContainer className={isOpen ? 'is-open' : ''}>
           <Overlay onClick={CloseCart} />
           <SideBar>
-            <FormEntrega
-              avancaParaPagamento={() => setEstadoAtual(AsideStates.PAGAMENTO)}
+            <Formulario
               avancaParaCarrinho={() => setEstadoAtual(AsideStates.CARRINHO)}
-            />
-          </SideBar>
-        </CartContainer>
-      )
-    case AsideStates.PAGAMENTO:
-      return (
-        <CartContainer className={isOpen ? 'is-open' : ''}>
-          <Overlay onClick={CloseCart} />
-          <SideBar>
-            <FormPagamento
               avancaParaRecibo={() => setEstadoAtual(AsideStates.RECIBO)}
-              avancaParaEntrega={() => setEstadoAtual(AsideStates.ENTREGA)}
             />
           </SideBar>
         </CartContainer>
@@ -70,7 +56,7 @@ const SideComponent = () => {
           <Overlay onClick={CloseCart} />
           <SideBar>
             <Recibo
-              avancaParaPagamento={() => setEstadoAtual(AsideStates.ENTREGA)}
+              avancaParaPagamento={() => setEstadoAtual(AsideStates.FORMULARIO)}
             />
           </SideBar>
         </CartContainer>

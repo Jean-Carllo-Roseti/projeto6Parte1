@@ -15,10 +15,10 @@ export type PurchasePayload = {
       city: string
       zipCode: string
       number: 12
-      complement: string
+      complement?: string
     }
   }
-  payment?: {
+  payment: {
     card: {
       name: string
       number: string
@@ -29,6 +29,10 @@ export type PurchasePayload = {
       }
     }
   }
+}
+
+type RespostaApi = {
+  resposta: string
 }
 
 const api = createApi({
@@ -42,7 +46,7 @@ const api = createApi({
     getFeaturePratos: builder.query<Restaurante, string>({
       query: (id) => `/restaurantes/${id}`
     }),
-    purchase: builder.mutation<any, PurchasePayload>({
+    purchase: builder.mutation<RespostaApi, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
