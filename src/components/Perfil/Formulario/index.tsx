@@ -37,17 +37,17 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
       year: ''
     },
     validationSchema: Yup.object({
-      receiver: Yup.string().required('O campo é obrigatório'),
-      description: Yup.string().required('O campo é obrigatório'),
-      city: Yup.string().required('O campo é obrigatório'),
-      zipCode: Yup.number().required('O campo é obrigatório'),
-      number: Yup.string().required('O campo é obrigatório'),
-      complement: Yup.string(),
-      cardName: Yup.string().required('O campo é obrigatório'),
-      cardNumber: Yup.number().required('O campo é obrigatório'),
-      code: Yup.number().required('O campo é obrigatório'),
-      month: Yup.number().required('O campo é obrigatório'),
-      year: Yup.number().required('O campo é obrigatório')
+      // receiver: Yup.string().required('O campo é obrigatório'),
+      // description: Yup.string().required('O campo é obrigatório'),
+      // city: Yup.string().required('O campo é obrigatório'),
+      // zipCode: Yup.number().required('O campo é obrigatório'),
+      // number: Yup.string().required('O campo é obrigatório'),
+      // complement: Yup.string().required('o campo é obrigatorio'),
+      // cardName: Yup.string().required('O campo é obrigatório'),
+      // cardNumber: Yup.number().required('O campo é obrigatório'),
+      // code: Yup.number().required('O campo é obrigatório'),
+      // month: Yup.number().required('O campo é obrigatório'),
+      // year: Yup.number().required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
       purchase({
@@ -107,9 +107,6 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
   return (
     <form onSubmit={form.handleSubmit}>
       <Visivel className={formularioAtivo === 'entrega' ? 'is-open' : ''}>
-        {' '}
-        {/*gostaria q esse formulario desse inicio de maneira visivel}
-        <Subtitulo>Entrega</Subtitulo> {/*formulario de entraga */}
         <ContentFormulario>
           <label htmlFor="receiver">Quem ira receber</label>
           <input
@@ -129,7 +126,7 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
             value={form.values.description}
             onChange={form.handleChange}
             onBlur={form.handleBlur}
-            className={checkInputError('endereco') ? 'error' : ''}
+            className={checkInputError('description') ? 'error' : ''}
           />
           <label htmlFor="cidade">Cidade</label>
           <input
@@ -190,8 +187,6 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
         </ContentFormulario>
       </Visivel>
       <Visivel className={formularioAtivo === 'pagamento' ? 'is-open' : ''}>
-        {' '}
-        {/*seundo formulario a ser exibido, os formulario não podem ser exibido ao mesmo tempo. */}
         <ContentFormulario>
           <Subtitulo>Pagamento - Valor a pagar R$ {Total}</Subtitulo>
           <label htmlFor="cardName">Nome do cartão</label>{' '}
@@ -221,14 +216,14 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
               />
             </div>
             <div>
-              <label htmlFor="cvv">CVV</label>
+              <label htmlFor="code">CVV</label>
               <input
                 type="number"
-                id="cvv"
+                id="code"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
-                name="cvv"
-                className={checkInputError('cvv') ? 'error' : ''}
+                name="code"
+                className={checkInputError('code') ? 'error' : ''}
               />
             </div>
           </Ajuste>
