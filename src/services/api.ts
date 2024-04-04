@@ -31,8 +31,8 @@ export type PurchasePayload = {
   }
 }
 
-type RespostaApi = {
-  resposta: string
+type AnswerPayload = {
+  orderId: string
 }
 
 const api = createApi({
@@ -46,7 +46,7 @@ const api = createApi({
     getFeaturePratos: builder.query<Restaurante, string>({
       query: (id) => `/restaurantes/${id}`
     }),
-    purchase: builder.mutation<RespostaApi, PurchasePayload>({
+    purchase: builder.mutation<AnswerPayload, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',

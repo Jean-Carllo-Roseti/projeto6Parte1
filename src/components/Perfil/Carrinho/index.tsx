@@ -4,16 +4,13 @@ import { useState } from 'react'
 
 import { close } from '../../../store/reducer/cart'
 
-import Recibo from '../Recibo'
-
 import { CartContainer, Overlay, SideBar } from './styles'
 import ItensCarrinho from '../ItensCarrinho'
 import Formulario from '../Formulario'
 
 const AsideStates = {
   CARRINHO: 'CARRINHO',
-  FORMULARIO: 'FORMULARIO',
-  RECIBO: 'RECIBO'
+  FORMULARIO: 'FORMULARIO'
 }
 
 const SideComponent = () => {
@@ -45,18 +42,6 @@ const SideComponent = () => {
           <SideBar>
             <Formulario
               avancaParaCarrinho={() => setEstadoAtual(AsideStates.CARRINHO)}
-              avancaParaRecibo={() => setEstadoAtual(AsideStates.RECIBO)}
-            />
-          </SideBar>
-        </CartContainer>
-      )
-    case AsideStates.RECIBO:
-      return (
-        <CartContainer className={isOpen ? 'is-open' : ''}>
-          <Overlay onClick={CloseCart} />
-          <SideBar>
-            <Recibo
-              avancaParaPagamento={() => setEstadoAtual(AsideStates.FORMULARIO)}
             />
           </SideBar>
         </CartContainer>

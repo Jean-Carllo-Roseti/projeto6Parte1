@@ -6,7 +6,7 @@ import { remove } from '../../../store/reducer/cart'
 import { Cards, ImgFechar, ImgPrato, Valor } from '../Carrinho/styles'
 import Lixeira from '../../../assets/images/Lixeira.png'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
-import { ContentRecibo } from '../Recibo/styles'
+import { ContainerRec } from '../Formulario/styles'
 
 interface ItensCarrinhoProps {
   avancaParaEntrega: () => void
@@ -25,9 +25,9 @@ const ItensCarrinho = ({ avancaParaEntrega }: ItensCarrinhoProps) => {
   return (
     <>
       {items.length === 0 ? (
-        <ContentRecibo>
+        <ContainerRec>
           <h3>O carrinho não possui nenhum prato.</h3>
-        </ContentRecibo>
+        </ContainerRec>
       ) : (
         <>
           <ul>

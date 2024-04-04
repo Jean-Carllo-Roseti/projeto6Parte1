@@ -1,25 +1,28 @@
+import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
+import InputMask from 'react-input-mask'
 import { usePurchaseMutation } from '../../../services/api'
 import { useValorTotal } from '../../../Uteis'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
+import { close } from '../../../store/reducer/cart'
+
 import {
   Ajuste,
   Buttondiv,
+  ContainerRec,
   ContentFormulario,
   Subtitulo,
   Visivel
 } from './styles'
-import InputMask from 'react-input-mask'
 
 interface FormProps {
-  avancaParaRecibo: () => void
   avancaParaCarrinho: () => void
 }
 
-const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
+const Formulario = ({ avancaParaCarrinho }: FormProps) => {
   const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
 
   const form = useFormik({
@@ -79,22 +82,32 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
 
   const Total = useValorTotal()
 
-  const [formularioAtivo, setformularioAtivo] = useState('entrega')
+  const [formularioAtivo, setFormularioAtivo] = useState('entrega')
 
   const avancaParaPagamento = () => {
-    setformularioAtivo('pagamento')
+    setFormularioAtivo('pagamento')
   }
 
   const RetornaParaEntrega = () => {
-    setformularioAtivo('entrega')
+    setFormularioAtivo('entrega')
+  }
+
+  const Recibo = () => {
+    setFormularioAtivo('recibo')
+  }
+
+  const dispatch = useDispatch()
+
+  const CloseCart = () => {
+    dispatch(close())
   }
 
   useEffect(() => {
     if (!isLoading && data && !isError) {
-      // Só avança para o recibo após a confirmação de sucesso da requisição
-      avancaParaRecibo()
+      console.log('Dados da Resposta:', data)
+      Recibo()
     }
-  }, [isLoading, data, isError, avancaParaRecibo])
+  }, [isLoading, data, isError])
 
   const checkInputError = (fildName: string) => {
     const estaAlterado = fildName in form.touched
@@ -259,6 +272,36 @@ const Formulario = ({ avancaParaRecibo, avancaParaCarrinho }: FormProps) => {
             </ButtonPerfil>
           </Buttondiv>
         </ContentFormulario>
+      </Visivel>
+      <Visivel className={formularioAtivo === 'recibo' ? 'is-open' : ''}>
+        <ContainerRec>
+          <h3>Pedido realizado - {data?.orderId}</h3>
+          <p>
+            Estamos felizes em informar que seu pedido já está em processo de
+            preparação e, em breve, será entregue no endereço fornecido
+            <br />
+            <br />
+            Gostaríamos de ressaltar que nossos entregadores não estão
+            autorizados a realizar cobranças extras.
+            <br />
+            <br />
+            Lembre-se da importância de higienizar as mãos após o recebimento do
+            pedido, garantindo assim sua segurança e bem-estar durante a
+            refeição.
+            <br />
+            <br />
+            Esperamos que desfrute de uma deliciosa e agradável experiência
+            gastronômica. Bom apetite!
+          </p>
+        </ContainerRec>
+        <ButtonPerfil
+          onClick={() => {
+            avancaParaCarrinho()
+            CloseCart()
+          }}
+        >
+          Concluido
+        </ButtonPerfil>
       </Visivel>
     </form>
   )
