@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
+import { breakpoints } from '../../Home/CardapioList/styles'
 
 export const Banner = styled.div`
   position: relative;
@@ -30,6 +31,10 @@ export const Banner = styled.div`
     display: flex;
     flex-direction: column;
     gap: 156px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      text-align: center;
+    }
   }
 `
 export const Paragrafo = styled.h2`

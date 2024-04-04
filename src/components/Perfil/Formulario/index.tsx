@@ -7,7 +7,7 @@ import InputMask from 'react-input-mask'
 import { usePurchaseMutation } from '../../../services/api'
 import { useValorTotal } from '../../../Uteis'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
-import { close } from '../../../store/reducer/cart'
+import { close, clear } from '../../../store/reducer/cart'
 
 import {
   Ajuste,
@@ -20,9 +20,13 @@ import {
 
 interface FormProps {
   avancaParaCarrinho: () => void
+  setMostrarImagemFechar: (mostar: boolean) => void
 }
 
-const Formulario = ({ avancaParaCarrinho }: FormProps) => {
+const Formulario = ({
+  avancaParaCarrinho,
+  setMostrarImagemFechar
+}: FormProps) => {
   const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
 
   const form = useFormik({
@@ -76,6 +80,8 @@ const Formulario = ({ avancaParaCarrinho }: FormProps) => {
           }
         },
         products: [{ id: 1, price: 0 }]
+      }).then(() => {
+        setMostrarImagemFechar(false)
       })
     }
   })
@@ -100,6 +106,10 @@ const Formulario = ({ avancaParaCarrinho }: FormProps) => {
 
   const CloseCart = () => {
     dispatch(close())
+  }
+
+  const ClearCart = () => {
+    dispatch(clear())
   }
 
   useEffect(() => {
@@ -298,6 +308,7 @@ const Formulario = ({ avancaParaCarrinho }: FormProps) => {
           onClick={() => {
             avancaParaCarrinho()
             CloseCart()
+            ClearCart()
           }}
         >
           Concluido

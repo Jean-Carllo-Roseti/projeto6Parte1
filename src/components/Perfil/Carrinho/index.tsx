@@ -7,6 +7,8 @@ import { close } from '../../../store/reducer/cart'
 import { CartContainer, Overlay, SideBar } from './styles'
 import ItensCarrinho from '../ItensCarrinho'
 import Formulario from '../Formulario'
+import Fechar from '../../../assets/images/fechar.png'
+import { ImageFechar } from '../CardPerfil/styles'
 
 const AsideStates = {
   CARRINHO: 'CARRINHO',
@@ -22,6 +24,7 @@ const SideComponent = () => {
   }
 
   const [estadoAtual, setEstadoAtual] = useState(AsideStates.CARRINHO)
+  const [mostrarImagemFechar, setMostrarImagemFechar] = useState(true)
 
   switch (estadoAtual) {
     case AsideStates.CARRINHO:
@@ -29,6 +32,11 @@ const SideComponent = () => {
         <CartContainer className={isOpen ? 'is-open' : ''}>
           <Overlay onClick={CloseCart} />
           <SideBar>
+            <ImageFechar
+              src={Fechar}
+              alt="icone de fechar"
+              onClick={CloseCart}
+            />
             <ItensCarrinho
               avancaParaEntrega={() => setEstadoAtual(AsideStates.FORMULARIO)}
             />
@@ -40,8 +48,16 @@ const SideComponent = () => {
         <CartContainer className={isOpen ? 'is-open' : ''}>
           <Overlay onClick={CloseCart} />
           <SideBar>
+            {mostrarImagemFechar && (
+              <ImageFechar
+                src={Fechar}
+                alt="Ícone de fechar"
+                onClick={CloseCart}
+              />
+            )}
             <Formulario
               avancaParaCarrinho={() => setEstadoAtual(AsideStates.CARRINHO)}
+              setMostrarImagemFechar={setMostrarImagemFechar}
             />
           </SideBar>
         </CartContainer>

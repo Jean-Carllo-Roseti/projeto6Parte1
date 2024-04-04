@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
+import { ImageFechar } from '../CardPerfil/styles'
+import { breakpoints } from '../../Home/CardapioList/styles'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -38,7 +40,21 @@ export const SideBar = styled.aside`
   input {
     color: #000;
   }
+
+  ${ImageFechar} {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+
+    ${ImageFechar} {
+      display: block;
+      left: 8px;
+    }
+  }
 `
+
 export const ImgPrato = styled.img`
   width: 80px;
   height: 80px;
@@ -86,5 +102,11 @@ export const Cards = styled.li`
 
   span {
     margin-bottom: 34px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 16px;
   }
 `

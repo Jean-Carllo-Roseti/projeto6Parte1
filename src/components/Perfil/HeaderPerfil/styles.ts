@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Vector from '../../../assets/images/vector.png'
 import { cores } from '../../../styles'
+import { breakpoints } from '../../Home/CardapioList/styles'
 
 export const HeaderContainer = styled.header`
   background-image: url(${Vector});
@@ -15,10 +16,19 @@ export const PerfilList = styled.ul`
 
   li:first-child {
     margin-right: 96px;
+    display: block;
   }
 
   li:last-child {
     cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    justify-content: space-around;
+
+    li:first-child {
+      display: none;
+    }
   }
 `
 export const ContainerPerfil = styled.div`

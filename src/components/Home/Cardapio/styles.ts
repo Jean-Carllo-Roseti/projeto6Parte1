@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
+import { breakpoints } from '../CardapioList/styles'
 
 import { Restaurante } from '../../../Pages/Home'
 
@@ -10,6 +11,10 @@ export const ImgCardapio = styled.div<Pick<Restaurante, 'capa'>>`
   background-image: url(${(props) => props.capa});
   flex-direction: row-reverse;
   display: flex;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: none;
+  }
 `
 
 export const Etiqueta = styled.span`
@@ -18,7 +23,11 @@ export const Etiqueta = styled.span`
   right: 8px;
 `
 
-export const CardCadapio = styled.div``
+export const CardCadapio = styled.div`
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 10%;
+  }
+`
 
 export const CadapiorListaTag = styled.ul`
   display: flex;

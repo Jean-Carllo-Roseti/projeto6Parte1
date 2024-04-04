@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
 import Vector from '../../../assets/images/vector.png'
+import { breakpoints } from '../CardapioList/styles'
 
 export const HeroContainer = styled.div`
   text-align: center;
@@ -13,6 +14,10 @@ export const HeroText = styled.div`
   line-height: 42px;
   color: ${cores.salmao};
   margin-top: 138px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 15%;
+  }
 `
 
 export const ImgHero = styled.img`

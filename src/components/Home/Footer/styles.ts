@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../../styles'
+import { breakpoints } from '../CardapioList/styles'
 
 export const ImgLogo = styled.img`
   margin-top: 40px;
@@ -23,5 +24,9 @@ export const FooterList = styled.ul`
 
   li:nth-child(2) {
     margin: 0 8px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 10%;
   }
 `
