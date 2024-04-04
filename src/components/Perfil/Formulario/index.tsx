@@ -8,6 +8,7 @@ import { usePurchaseMutation } from '../../../services/api'
 import { useValorTotal } from '../../../Uteis'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { close, clear } from '../../../store/reducer/cart'
+import { Prato } from '../../../Pages/Home'
 
 import {
   Ajuste,
@@ -18,14 +19,18 @@ import {
   Visivel
 } from './styles'
 
+type PratoSimples = Pick<Prato, 'id' | 'preco'>
+
 interface FormProps {
   avancaParaCarrinho: () => void
   setMostrarImagemFechar: (mostar: boolean) => void
+  pratos: PratoSimples[]
 }
 
 const Formulario = ({
   avancaParaCarrinho,
-  setMostrarImagemFechar
+  setMostrarImagemFechar,
+  pratos
 }: FormProps) => {
   const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
 
@@ -64,7 +69,7 @@ const Formulario = ({
             description: values.description,
             city: values.city,
             zipCode: values.zipCode,
-            number: 12,
+            number: Number(values.number),
             complement: values.complement
           }
         },
@@ -72,14 +77,17 @@ const Formulario = ({
           card: {
             name: values.cardName,
             number: values.cardNumber,
-            code: 123,
+            code: Number(values.code),
             expires: {
-              month: 12,
-              year: 1234
+              month: Number(values.month),
+              year: Number(values.year)
             }
           }
         },
-        products: [{ id: 1, price: 0 }]
+        products: pratos.map((prato) => ({
+          id: prato.id,
+          price: prato.preco
+        }))
       }).then(() => {
         setMostrarImagemFechar(false)
       })
@@ -178,7 +186,7 @@ const Formulario = ({
             <div>
               <label htmlFor="number">Numero</label>
               <input
-                type="number"
+                type="text"
                 id="number"
                 name="number"
                 value={form.values.number}
@@ -229,7 +237,7 @@ const Formulario = ({
                 Numero do cartão
               </label>
               <input
-                type="number"
+                type="text"
                 id="cardNumber"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
@@ -241,7 +249,7 @@ const Formulario = ({
             <div>
               <label htmlFor="code">CVV</label>
               <input
-                type="number"
+                type="text"
                 id="code"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
@@ -254,7 +262,7 @@ const Formulario = ({
             <div>
               <label htmlFor="month">Mês de vencimento</label>
               <input
-                type="number"
+                type="text"
                 id="month"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
@@ -265,7 +273,7 @@ const Formulario = ({
             <div>
               <label htmlFor="year">ano de vencimento</label>
               <input
-                type="number"
+                type="text"
                 id="year"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}

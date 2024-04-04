@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Restaurante } from '../Pages/Home'
 
 type Product = {
-  id: 1
-  price: 0
+  id: number
+  price: string
 }
 
 export type PurchasePayload = {
@@ -14,7 +14,7 @@ export type PurchasePayload = {
       description: string
       city: string
       zipCode: string
-      number: 12
+      number: number
       complement?: string
     }
   }
@@ -22,10 +22,10 @@ export type PurchasePayload = {
     card: {
       name: string
       number: string
-      code: 123
+      code: number
       expires: {
-        month: 12
-        year: 1234
+        month: number
+        year: number
       }
     }
   }

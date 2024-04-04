@@ -16,7 +16,13 @@ const AsideStates = {
 }
 
 const SideComponent = () => {
-  const { isOpen } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+
+  const pratosSimplificados = items.map((item) => ({
+    id: item.id,
+    preco: item.preco
+  }))
+
   const dispatch = useDispatch()
 
   const CloseCart = () => {
@@ -58,6 +64,7 @@ const SideComponent = () => {
             <Formulario
               avancaParaCarrinho={() => setEstadoAtual(AsideStates.CARRINHO)}
               setMostrarImagemFechar={setMostrarImagemFechar}
+              pratos={pratosSimplificados}
             />
           </SideBar>
         </CartContainer>
