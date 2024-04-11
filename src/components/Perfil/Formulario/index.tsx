@@ -49,17 +49,17 @@ const Formulario = ({
       year: ''
     },
     validationSchema: Yup.object({
-      // receiver: Yup.string().required('O campo é obrigatório'),
-      // description: Yup.string().required('O campo é obrigatório'),
-      // city: Yup.string().required('O campo é obrigatório'),
-      // zipCode: Yup.number().required('O campo é obrigatório'),
-      // number: Yup.string().required('O campo é obrigatório'),
-      // complement: Yup.string().required('o campo é obrigatorio'),
-      // cardName: Yup.string().required('O campo é obrigatório'),
-      // cardNumber: Yup.number().required('O campo é obrigatório'),
-      // code: Yup.number().required('O campo é obrigatório'),
-      // month: Yup.number().required('O campo é obrigatório'),
-      // year: Yup.number().required('O campo é obrigatório')
+      receiver: Yup.string().required('O campo é obrigatório'),
+      description: Yup.string().required('O campo é obrigatório'),
+      city: Yup.string().required('O campo é obrigatório'),
+      zipCode: Yup.string().required('O campo é obrigatório'),
+      number: Yup.string().required('O campo é obrigatório'),
+      complement: Yup.string().required('o campo é obrigatorio'),
+      cardName: Yup.string().required('O campo é obrigatório'),
+      cardNumber: Yup.number().required('O campo é obrigatório'),
+      code: Yup.number().required('O campo é obrigatório'),
+      month: Yup.number().required('O campo é obrigatório'),
+      year: Yup.number().required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
       purchase({
@@ -179,7 +179,7 @@ const Formulario = ({
                 value={form.values.zipCode}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
-                mask="999.999.999-99"
+                mask="99999-999"
                 className={checkInputError('zipCode') ? 'error' : ''}
               />
             </div>
