@@ -25,7 +25,7 @@ export const List = styled.ul`
 
   @media (max-width: ${breakpoints.tablet}) {
     display: block;
-    width: 90%;
+    width: 85%;
     margin: auto;
   }
 `

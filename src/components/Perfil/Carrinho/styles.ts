@@ -32,6 +32,13 @@ export const SideBar = styled.aside`
   width: 360px;
   padding: 32px 8px 0 8px;
   z-index: 1;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+  }
 
   li {
     display: flex;
@@ -74,6 +81,10 @@ export const Valor = styled.ul`
   color: ${cores.trigo};
   margin-top: 40px;
   margin-bottom: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    justify-content: space-around;
+  }
 
   li {
     font-weight: 700;
