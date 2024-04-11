@@ -70,10 +70,14 @@ const Formulario = ({
       cardName: Yup.string().required('O campo é obrigatório'),
       cardNumber: Yup.number().required('O campo é obrigatório'),
       code: Yup.number().required('O campo é obrigatório'),
-      month: Yup.number().required('O campo é obrigatório'),
+      month: Yup.number()
+        .required('O campo é obrigatório')
+        .min(1, '')
+        .max(12, ''),
       year: Yup.number().required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
+      console.log(values)
       purchase({
         delivery: {
           receiver: values.receiver,
