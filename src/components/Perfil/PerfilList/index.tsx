@@ -1,4 +1,4 @@
-import { Prato } from '../../../Pages/Home'
+import { Prato } from '../../../types/Restaurante'
 import CardPerfil from '../CardPerfil'
 import { OpcoesContainer, PerfilList } from './styles'
 

@@ -14,7 +14,7 @@ import {
   BotaoPerfil
 } from './styles'
 
-import { Prato } from '../../../Pages/Home'
+import { Prato } from '../../../types/Restaurante'
 
 import Botao from '../ButtonPerfil'
 import Fechar from '../../../assets/images/fechar.png'

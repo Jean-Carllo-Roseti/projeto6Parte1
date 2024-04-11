@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../../styles'
 import { breakpoints } from '../CardapioList/styles'
 
-import { Restaurante } from '../../../Pages/Home'
+import { Restaurante } from '../../../types/Restaurante'
 
 export const ImgCardapio = styled.div<Pick<Restaurante, 'capa'>>`
   width: 100%;

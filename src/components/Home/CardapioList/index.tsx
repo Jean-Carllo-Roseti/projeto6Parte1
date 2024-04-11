@@ -1,4 +1,4 @@
-import { Restaurante } from '../../../Pages/Home'
+import { Restaurante } from '../../../types/Restaurante'
 import Cardapio from '../Cardapio'
 import { List, SectionList } from './styles'
 

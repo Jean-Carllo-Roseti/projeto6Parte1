@@ -8,7 +8,7 @@ import BannerPerfil from '../BannerPerfil'
 import Logo from '../../../assets/images/logo.png'
 
 import { open } from '../../../store/reducer/cart'
-import { Restaurante } from '../../../Pages/Home'
+import { Restaurante } from '../../../types/Restaurante'
 
 type Props = {
   restaurante: Restaurante

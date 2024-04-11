@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 import Estrela from '../../../assets/images/estrela.png'
-import { Restaurante } from '../../../Pages/Home'
+import { Restaurante } from '../../../types/Restaurante'
 import Tag from '../Tag'
 
 type Props = Omit<Restaurante, 'cardapio'>

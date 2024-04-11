@@ -1,6 +1,6 @@
 import { Banner, Paragrafo } from './styles'
 
-import { Restaurante } from '../../../Pages/Home'
+import { Restaurante } from '../../../types/Restaurante'
 
 export type BannerProps = Pick<Restaurante, 'capa' | 'tipo' | 'titulo'>
 

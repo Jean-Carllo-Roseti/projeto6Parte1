@@ -8,7 +8,7 @@ import { usePurchaseMutation } from '../../../services/api'
 import { useValorTotal } from '../../../Uteis'
 import { ButtonPerfil } from '../ButtonPerfil/styled'
 import { close, clear } from '../../../store/reducer/cart'
-import { Prato } from '../../../Pages/Home'
+import { Prato } from '../../../types/Restaurante'
 
 import {
   Ajuste,
@@ -20,6 +20,19 @@ import {
 } from './styles'
 
 type PratoSimples = Pick<Prato, 'id' | 'preco'>
+
+type CampoFormulario =
+  | 'receiver'
+  | 'description'
+  | 'city'
+  | 'zipCode'
+  | 'number'
+  | 'complement'
+  | 'cardName'
+  | 'cardNumber'
+  | 'code'
+  | 'month'
+  | 'year'
 
 interface FormProps {
   avancaParaCarrinho: () => void
@@ -53,8 +66,7 @@ const Formulario = ({
       description: Yup.string().required('O campo é obrigatório'),
       city: Yup.string().required('O campo é obrigatório'),
       zipCode: Yup.string().required('O campo é obrigatório'),
-      number: Yup.string().required('O campo é obrigatório'),
-      complement: Yup.string().required('o campo é obrigatorio'),
+      number: Yup.number().required('O campo é obrigatório'),
       cardName: Yup.string().required('O campo é obrigatório'),
       cardNumber: Yup.number().required('O campo é obrigatório'),
       code: Yup.number().required('O campo é obrigatório'),
@@ -99,7 +111,31 @@ const Formulario = ({
   const [formularioAtivo, setFormularioAtivo] = useState('entrega')
 
   const avancaParaPagamento = () => {
-    setFormularioAtivo('pagamento')
+    const camposObrigatorios: CampoFormulario[] = [
+      'receiver',
+      'description',
+      'city',
+      'zipCode',
+      'number'
+    ]
+
+    const todosCamposValidos = camposObrigatorios.every((campo) => {
+      const campoFoiTocado = form.touched[campo] // Agora o TypeScript sabe que `campo` é um CampoFormulario
+      const campoNaoPossuiErro = !form.errors[campo] // Mesmo aqui
+      return campoFoiTocado && campoNaoPossuiErro
+    })
+
+    if (todosCamposValidos) {
+      setFormularioAtivo('pagamento')
+    } else {
+      form.validateForm().then(() => {
+        const touchedFields = camposObrigatorios.reduce((acc, campo) => {
+          acc[campo] = true // O TypeScript entende que `acc` e `campo` são compatíveis
+          return acc
+        }, {} as { [key in CampoFormulario]?: boolean }) // Isso assegura que `acc` é tratado como um objeto com chaves do tipo CampoFormulario
+        form.setTouched(touchedFields)
+      })
+    }
   }
 
   const RetornaParaEntrega = () => {
@@ -186,7 +222,7 @@ const Formulario = ({
             <div>
               <label htmlFor="number">Numero</label>
               <input
-                type="text"
+                type="number"
                 id="number"
                 name="number"
                 value={form.values.number}
@@ -204,13 +240,11 @@ const Formulario = ({
             value={form.values.complement}
             onChange={form.handleChange}
             onBlur={form.handleBlur}
-            className={checkInputError('complement') ? 'error' : ''}
           />
           <Buttondiv>
             <ButtonPerfil type="button" onClick={avancaParaPagamento}>
               Continuar com o pagamento
-            </ButtonPerfil>{' '}
-            {/*ao clikar neste button o primeiro formulario some e o segundo aparece */}
+            </ButtonPerfil>
             <ButtonPerfil type="button" onClick={avancaParaCarrinho}>
               voltar para o carrinho
             </ButtonPerfil>
@@ -220,8 +254,7 @@ const Formulario = ({
       <Visivel className={formularioAtivo === 'pagamento' ? 'is-open' : ''}>
         <ContentFormulario>
           <Subtitulo>Pagamento - Valor a pagar R$ {Total}</Subtitulo>
-          <label htmlFor="cardName">Nome do cartão</label>{' '}
-          {/*ContentFormulario de compras */}
+          <label htmlFor="cardName">Nome do cartão</label>
           <input
             type="text"
             id="cardName"
@@ -236,7 +269,7 @@ const Formulario = ({
               <label className="numberw" htmlFor="cardNumber">
                 Numero do cartão
               </label>
-              <input
+              <InputMask
                 type="text"
                 id="cardNumber"
                 onChange={form.handleChange}
@@ -244,48 +277,51 @@ const Formulario = ({
                 name="cardNumber"
                 value={form.values.cardNumber}
                 className={checkInputError('cardNumber') ? 'error' : ''}
+                mask="9999 9999 9999 9999"
               />
             </div>
             <div>
               <label htmlFor="code">CVV</label>
-              <input
+              <InputMask
                 type="text"
                 id="code"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 name="code"
                 className={checkInputError('code') ? 'error' : ''}
+                mask="999"
               />
             </div>
           </Ajuste>
           <Ajuste>
             <div>
               <label htmlFor="month">Mês de vencimento</label>
-              <input
+              <InputMask
                 type="text"
                 id="month"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 name="month"
                 className={checkInputError('month') ? 'error' : ''}
+                mask="99"
               />
             </div>
             <div>
               <label htmlFor="year">ano de vencimento</label>
-              <input
+              <InputMask
                 type="text"
                 id="year"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 name="year"
                 className={checkInputError('year') ? 'error' : ''}
+                mask="9999"
               />
             </div>
           </Ajuste>
           <Buttondiv>
             <ButtonPerfil type="submit">Finalizar pagamento</ButtonPerfil>
             <ButtonPerfil type="button" onClick={RetornaParaEntrega}>
-              {/*ao clickar neste botão o estado volte a ser como iniciou, mostre o formulário q estava oculto, primeiro formulario */}
               voltar para edição de endereço
             </ButtonPerfil>
           </Buttondiv>

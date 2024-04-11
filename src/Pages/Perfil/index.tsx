@@ -6,12 +6,21 @@ import { useGetFeaturePratosQuery } from '../../services/api'
 import Carrinho from '../../components/Perfil/Carrinho'
 
 const Perfil = () => {
-  const { id } = useParams()
-  const { data: restaurante } = useGetFeaturePratosQuery(id!)
+  const { id } = useParams<{ id?: string }>()
+  const {
+    data: restaurante,
+    isLoading,
+    isError
+  } = useGetFeaturePratosQuery(id ?? '')
 
-  if (!restaurante) {
+  if (isLoading) {
     return <h3>Carregando...</h3>
   }
+
+  if (isError || !restaurante) {
+    return <h3>Erro ao carregar ou restaurante não encontrado.</h3>
+  }
+
   return (
     <>
       <HeaderPerfil restaurante={restaurante} />
